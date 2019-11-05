@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastro de Livro</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+</head>
+<body>
+	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                	<img alt="BooksPlace" src="/images/book.ico" /> 
+                </a>
+            </div>
+        </div>
+	</nav>
+
+	<form class="form-horizontal" method="POST" action="/livros">
+		
+		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}">Livro salvo com sucesso!!!</span>
+		</div>
+		
+    	<div class="panel panel-default">
+    		<div class="panel-heading">
+    			<h1 class="panel-title">Novo Livro</h1>
+    		</div>
+    		
+    		<div class="panel-body">
+				<div class="form-group">
+					<label for="titulo" class="col-sm-2 control-label">Título</label>
+					<div class="col-sm-4"> 
+						<input type="text" class="form-control" id="titulo" name="titulo"/>
+					</div>
+				</div>
+			
+				<div class="form-group">
+					<label for="descricao" class="col-sm-2 control-label">Descrição</label>
+					<div class="col-sm-4"> 
+						<input type="text" class="form-control" id="descricao" name="descricao"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="autor" class="col-sm-2 control-label">Autor</label>
+					<div class="col-sm-4"> 
+						<input type="text" class="form-control" id="autor" name="autor"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ano" class="col-sm-2 control-label">Ano</label>
+					<div class="col-sm-2">  
+						<input type="text" class="form-control"	id="ano" name="ano"/>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Status</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="status">
+							<option th:each = "status : ${todosStatusLivro}" th:value = "${status}" th:text = "${status.descricao}" ></option>
+                    	</select>
+                    </div>
+				</div>
+				
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+			</div>
+    	</div>
+    </form>
+  
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
