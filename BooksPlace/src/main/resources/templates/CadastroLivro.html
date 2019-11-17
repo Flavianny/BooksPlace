@@ -18,11 +18,18 @@
         </div>
 	</nav>
 
-	<form class="form-horizontal" method="POST" action="/livros">
+	<form class="form-horizontal" method="POST" action="/livros" th:object=${livro}>
 		
 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Livro salvo com sucesso!!!</span>
 		</div>
+		
+		<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+			<div th:each="detailedError : ${#fields.detailedErrors()}">
+				<span th:text="${detailedError.message}"></span>
+			</div>
+		</div>
+		
 		
     	<div class="panel panel-default">
     		<div class="panel-heading">
@@ -31,20 +38,20 @@
     		</div>
     		
     		<div class="panel-body">
-				<div class="form-group row">
+				<div class="form-group row" th:classappend="${#fields.hasErrors('titulo')} ? has-error">
 					<label for="titulo" class="col-sm-1 control-label">Título</label>
 					<div class="col-sm-4"> 
 						<input type="text" class="form-control" id="titulo" name="titulo"/>
 					</div>
 				</div>
 			
-				<div class="form-group row">
+				<div class="form-group row" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
 					<label for="descricao" class="col-sm-1 control-label">Descrição</label>
 					<div class="col-sm-4"> 
 						<input type="text" class="form-control" id="descricao" name="descricao"/>
 					</div>
 				</div>
-				<div class="form-group row">
+				<div class="form-group row" th:classappend="${#fields.hasErrors('autor')} ? has-error">
 					<label for="autor" class="col-sm-1 control-label">Autor</label>
 					<div class="col-sm-4"> 
 						<input type="text" class="form-control" id="autor" name="autor"/>
