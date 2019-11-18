@@ -73,6 +73,12 @@ public class Livro {
 	public void setStatus(StatusLivro status) {
 		this.status = status;
 	}
+	
+	
+	public boolean isIndisponivel() {
+		return StatusLivro.INDISPONIVEL.equals(this.status); 
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,7 +1,27 @@
-.panel-default {
-		margin-left: 40px;
-		margin-right: 40px;
-	}
+.panel-default{
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+
+	border: thick;
+	border-width: 30px;
+}
+
+.BooksPlace-link-panel{
+	float:right;
+	padding: 0px;
+}
+
+
+.BooksPlace-titulo-panel{
+	float:left;
+}
+
+.table{
+	margin-top: -12px;
+	margin-bottom: -12px;
+}
+
 	
 .alert{
 		margin-left: 20px;

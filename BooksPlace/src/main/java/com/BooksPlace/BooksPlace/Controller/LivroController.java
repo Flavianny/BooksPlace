@@ -31,8 +31,11 @@ public class LivroController {
 	}
 	
 	@RequestMapping
-	public String buscarLivro() {
-		return "BuscarLivros";
+	public ModelAndView buscarLivro() {
+		List<Livro> todosLivros = livros.findAll();
+		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
+		mv.addObject("livros", todosLivros);
+		return mv; 
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
