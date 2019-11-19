@@ -33,11 +33,15 @@
 		margin-left: 40px;
 		margin-right: 40px;
 	}
+
 	
-.btn {
-	margin-left: 40px;
-		
-	}
+.bt-salvar-usuario{
+	margin-left: 125px;
+}	
+
+.bt-salvar-livro{
+	margin-left: 138px;
+}
 	
 .panel-title{
 	margin-left: 40px;
