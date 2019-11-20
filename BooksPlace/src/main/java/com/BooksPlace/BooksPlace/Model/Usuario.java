@@ -11,9 +11,16 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+/**
+ * Classe utilizada para representar a entidade usuário que será manipulada 
+ * dentro do sistema.
+ * @author airla
+ *
+ */
+
 @Entity
 public class Usuario {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
