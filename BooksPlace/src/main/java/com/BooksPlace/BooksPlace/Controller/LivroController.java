@@ -22,6 +22,7 @@ public class LivroController {
 	
 	@Autowired
 	private Livros livros;
+
 	
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
