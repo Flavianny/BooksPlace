@@ -1,7 +1,7 @@
 .panel-default{
 	margin-top: 15px;
-	margin-left: 15px;
-	margin-right: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
 
 	border: thick;
 	border-width: 30px;
@@ -22,6 +22,17 @@
 	margin-bottom: -12px;
 }
 
+.p {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 12px;
+	margin-top: 5px;
+}
+
+
+.btn-danger {
+	margin-top: 10px;
+}
 	
 .alert{
 		margin-left: 20px;
