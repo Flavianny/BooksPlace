@@ -24,28 +24,35 @@
 
 	
 .alert{
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
 	}
 	
 .panel-body {
 		margin-left: 40px;
 		margin-right: 40px;
 	}
+
 	
-.btn {
-	margin-left: 40px;
-		
-	}
+.bt-salvar-usuario{
+	margin-left: 125px;
+}	
+
+.bt-salvar-livro{
+	margin-left: 138px;
+}
 	
 .panel-title{
 	margin-left: 40px;
 	}
 	
 .form-horizontal{
+	margin-left: -15px;
 	margin-top: 10px;
-	}	
+	}
+	
+
 	
 	
 	

@@ -1,5 +1,11 @@
 package com.BooksPlace.BooksPlace.Model;
 
+/**
+ * Classe utilizada para representar os estados do Brasil. 
+ * A classe será utlizada pela entidade usuário. 
+ * @author flavianny
+ *
+ */
 public enum Estado {
 	
 	ACRE("Acre"),

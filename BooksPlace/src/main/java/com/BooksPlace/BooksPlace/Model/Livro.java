@@ -7,9 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Classe utilizada para representar a entidade livro que será manipulada 
+ * dentro do sistema.
+ * @author flavianny
+ *
+ */
 
 @Entity
 public class Livro {
@@ -25,6 +30,10 @@ public class Livro {
 	@Size(max = 60, message = "A Descrição não deve obter mais de 60 caracteres")
 	private String descricao;
 	
+	/**
+	 * @deprecated Essa variável não deveria ser utilizada com o tipo String,
+	 * e sim com o tipo int.
+	 */
 	@NotEmpty(message = "O campo Ano é obrigatório")
 	@Size(max = 4, message = "Ano não deve obter mais de 4 caracteres")
 	private String ano;
