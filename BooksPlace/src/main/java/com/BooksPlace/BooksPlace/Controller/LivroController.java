@@ -2,8 +2,10 @@ package com.BooksPlace.BooksPlace.Controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.type.filter.RegexPatternTypeFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
 import com.BooksPlace.BooksPlace.repository.Livros;
+import com.BooksPlace.BooksPlace.repository.filter.LivroFilter;
 
 /**
  * Classe utilizada para controlar as requisições feitas para entidade livro.
@@ -49,8 +52,19 @@ public class LivroController {
 	 * @author mycaell
 	 */
 	@RequestMapping
-	public ModelAndView buscarLivro() {
-		List<Livro> todosLivros = livros.findAll();
+	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
+		
+//		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro());
+		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro() );
+
+		
+//		String  autor = filtro.getAutor() == null ? "%" : filtro.getAutor();
+//		String  genero = filtro.getGenero() == null ? "%" : filtro.getGenero();
+//		List<Livro> todosLivros = livros.findByTituloContainingOrAutorContaining(titulo, autor);
+//		List<Livro> todosLivros = livros.findByTituloContaining(titulo);
+		
+		
+		
 		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
 		mv.addObject("livros", todosLivros);
 		return mv; 
