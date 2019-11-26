@@ -35,9 +35,9 @@
 }
 	
 .alert{
-		margin-left: 20px;
-		margin-right: 20px;
-		margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
 	}
 	
 .panel-body {
@@ -59,7 +59,11 @@
 	}
 	
 .form-horizontal{
+	margin-left: -15px;
 	margin-top: 10px;
-	}	
+	}
+	
+
+	
 	
 	
