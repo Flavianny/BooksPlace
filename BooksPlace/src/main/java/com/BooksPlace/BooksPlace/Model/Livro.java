@@ -117,6 +117,14 @@ public class Livro {
 		this.status = status;
 	}
 
+<<<<<<< HEAD
+=======
+
+	public boolean isIndisponivel() {
+		return StatusLivro.INDISPONIVEL.equals(this.status); 
+	}
+	
+>>>>>>> listagem_de_livros
 	@Override
 	public int hashCode() {
 		final int prime = 31;
