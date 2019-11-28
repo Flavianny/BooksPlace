@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+		>
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<title>Empréstimo de livro</title>
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
+       <div class="container-fluid">
+           <div class="navbar-header">
+               <a class="navbar-brand" href="#">
+               	<img alt="BooksPlace" src="/images/book.ico" /> 
+               </a>
+           </div>
+       </div>	
+	</nav>
+
+
+	<div class="container-fluid">
+		<div class="panel-default">
+			<div class="card">
+			
+				<div class="card-header"> 
+				
+		 			<div class="BooksPlace-titulo-panel text">
+		 			
+			  		<h5><FONT FACE=Times>Empréstimo</FONT></h5>
+		 			
+		 			</div>
+				</div> 				
+	 			
+	 			<div class="card-body">
+					
+				    	<div class="panel panel-default">
+			    		
+			    		<div class="panel-body">
+							<div class="form-group row">
+								<label for="titulo" class="col-sm-1 control-label">Título</label>
+								<div class="col-sm-4"> 
+									<input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo"/>
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label for="genero" class="col-sm-1 control-label">Gênero</label>
+								<div class="col-sm-4"> 
+									<input type="text" class="form-control" id="genero" placeholder="Gênero" name="genero"/>
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label for="ano" class="col-sm-1 control-label">Ano</label>
+								<div class="col-sm-4"> 
+									<input type="text" class="form-control" id="ano" placeholder="Ano" name="ano"/>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label for="autor" class="col-sm-1 control-label">Autor</label>
+								<div class="col-sm-4"> 
+									<input type="text" class="form-control" id="autor" placeholder="Autor" name="autor"/>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label for="leitor" class="col-sm-1 control-label">Leitor</label>
+								<div class="col-sm-4"> 
+									<input type="text" class="form-control" id="leitor" placeholder="Leitor" name="leitor"/>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label for="devolucao" class="col-sm-1 control-label">Devolução</label>
+								<div class="col-sm-4"> 
+									<input type="text" class="form-control" id="devolucao" placeholder="Data de devolução" name="devolucao"/>
+								</div>
+							</div>
+
+							
+							<!-- Alinhar  o botão com os campos de input-->		 				
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-10">
+									<button type="submit" class="btn btn-primary">Salvar</button>
+							</div>
+							
+							
+							<!-- Colocar essa img em paralelo aos campos de input -->		 			
+							<div class="card capa-livro" style="width: 25rem; ">
+							  <img src="/images/booklogo.png" class="card-img-top" alt="logo booksPlace" >
+							</div>
+
+	
+
+						</div>
+			    	</div>
+										
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>	
+	
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	
+</body>		
+</html>
