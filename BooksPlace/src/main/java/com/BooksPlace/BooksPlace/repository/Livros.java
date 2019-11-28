@@ -10,5 +10,5 @@ import com.BooksPlace.BooksPlace.Model.Livro;
  * Interface responsável por fornecer os metodos de persistência para entidade livro.
  */
 public interface Livros extends JpaRepository<Livro, Long>{
-	public List<Livro> findByTituloContainingOrAutorContainingOrGeneroContaining(String textoFiltro);
+	public List<Livro> findByTituloContainingOrAutorContainingOrGeneroContaining(String textoFiltro1, String textoFiltro2, String textoFiltro3);
 }

@@ -53,7 +53,7 @@ public class LivroController {
 	@RequestMapping
 	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
 		
-		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro());
+		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro(),filtro.getTextoFiltro(),filtro.getTextoFiltro());
 		
 		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
 		mv.addObject("livros", todosLivros);
