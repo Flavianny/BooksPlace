@@ -13,6 +13,6 @@ public interface Livros extends JpaRepository<Livro, Long>{
 	
 //	public List<Livro> findByTituloContainingOrAutorContainingOrGeneroContaining(String textoFiltro);
 	
-	public List<Livro> findByTituloContainingOrAutoresContaining(String textoFiltro, String textoFiltro2);
+//	public List<Livro> findByTituloContainingOrAutoresContaining(String textoFiltro, String textoFiltro2);
 	//public List<Livro> findByGeneroContaining(String genero);
 }

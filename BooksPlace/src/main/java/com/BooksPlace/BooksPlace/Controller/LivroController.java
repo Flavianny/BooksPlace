@@ -12,8 +12,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import com.BooksPlace.BooksPlace.Model.Livro;
@@ -50,10 +51,6 @@ public class LivroController {
 		  ByteArrayInputStream(livro.getCapa())); 
 		  } 
 	  }
-	  
-	  public void uploadImagemUsuario(FileUploadEvent event) {
-		  livro.setCapa(event.getFile().getContents());
-	  }
 
 	
 	/**
@@ -80,7 +77,7 @@ public class LivroController {
 	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
 		
 //		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro());
-		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro() );
+//		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro() );
 		
 //		String  autor = filtro.getAutor() == null ? "%" : filtro.getAutor();
 //		String  genero = filtro.getGenero() == null ? "%" : filtro.getGenero();
@@ -88,7 +85,7 @@ public class LivroController {
 //		List<Livro> todosLivros = livros.findByTituloContaining(titulo);
 		
 		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
-		mv.addObject("livros", todosLivros);
+		mv.addObject("livros", livros);
 		return mv; 
 	}
 	
@@ -100,11 +97,20 @@ public class LivroController {
 	 * @author flavianny
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(@Validated Livro livro, Errors erros) {	
+	public ModelAndView salvar(@RequestParam("file") MultipartFile file, @Validated Livro livro, Errors erros) {	
 		ModelAndView mv = new ModelAndView("CadastroLivro");
 		if (erros.hasErrors()) {
 			return mv;
 		}
+		byte[] capa;
+		try {
+			capa = file.getBytes();
+			livro.setCapa(capa);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//uploadImagemLivro(file);
 		livros.save(livro);
 		mv.addObject("mensagem", "Livro salvo com sucesso");
 		return mv;	

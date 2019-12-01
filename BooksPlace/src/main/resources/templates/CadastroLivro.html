@@ -31,7 +31,7 @@
 		 			<a class="btn btn-link BooksPlace-link-panel" href="/livros">Livros</a>
 				</div>
 			  		<div class="card-body">
-						<form class="form-horizontal" method="POST" action="/livros" th:object=${livro}>
+						<form class="form-horizontal" method="POST" action="/livros" th:object=${livro} enctype="multipart/form-data">
 							
 						<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 							<span th:text="${mensagem}">Livro salvo com sucesso!!!</span>
@@ -114,20 +114,9 @@
 				                    </div>
 								</div>
 								
-								<div class="form-group">
-								    <label for="exampleFormControlFile1">Anexar capa do livro</label>
-								    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-								     <p:fileUpload id="Capa" required="true" auto="false" 
-											sizeLimit="1000000" 
-											requiredMessage="A foto principal é obrigatória"
-											update="@form" fileLimit="1"
-											fileUploadListener="#{managerPessoa.uploadImagemUsuario}"
-											allowTypes="/(\.|\/)(gif|jpe?g|png)$/" 
-											mode="advanced"
-											dragDropSupport="false"
-											>
-				
-										</p:fileUpload>
+								<div class="form-group row">
+								    <label for="file">Anexar capa do livro</label>
+								    <input type="file" name="file"/><br></br>
 								  </div>
 								
 								</div>
