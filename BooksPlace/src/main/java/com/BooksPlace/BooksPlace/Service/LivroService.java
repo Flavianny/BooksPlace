@@ -1,4 +1,4 @@
-package com.BooksPlace.BoosPlace.Service;
+package com.BooksPlace.BooksPlace.Service;
 
 import java.util.ArrayList;
 
