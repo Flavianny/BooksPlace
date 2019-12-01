@@ -51,7 +51,6 @@ public class LivroController {
 		  ByteArrayInputStream(livro.getCapa())); 
 		  } 
 	  }
-
 	
 	/**
 	 * Método novo
@@ -102,8 +101,8 @@ public class LivroController {
 		if (erros.hasErrors()) {
 			return mv;
 		}
-		byte[] capa;
 		try {
+			byte[] capa;
 			capa = file.getBytes();
 			livro.setCapa(capa);
 		} catch (IOException e) {

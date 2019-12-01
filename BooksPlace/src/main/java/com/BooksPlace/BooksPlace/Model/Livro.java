@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,11 +51,12 @@ public class Livro {
 	private ArrayList<String> autores;
 	
 	@NotEmpty(message = "O campo ISBN é obrigatório")
-	@Size(max = 40, message = "O ISBN não deve obter mais de 40 caracteres")
+	@Size(max = 100, message = "O ISBN não deve obter mais de 100 caracteres")
 	private String isbn;
 	
 	private int exemplares;
 	
+	@Enumerated(EnumType.STRING)
 	private StatusLivro status;
 	
 	@Lob
