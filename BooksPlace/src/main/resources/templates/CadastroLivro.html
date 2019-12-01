@@ -31,7 +31,7 @@
 		 			<a class="btn btn-link BooksPlace-link-panel" href="/livros">Livros</a>
 				</div>
 			  		<div class="card-body">
-						<form class="form-horizontal" method="POST" action="/livros" th:object=${livro}>
+						<form class="form-horizontal" method="POST" action="/livros" th:object=${livro} enctype="multipart/form-data">
 							
 						<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 							<span th:text="${mensagem}">Livro salvo com sucesso!!!</span>
@@ -71,10 +71,10 @@
 									</div>
 								</div>
 
-								<div class="form-group row" th:classappend="${#fields.hasErrors('autor')} ? has-error" id="autorForm">
+								<div class="form-group row" th:classappend="${#fields.hasErrors('autores')} ? has-error" id="autorForm">
 									<label for="autor" class="col-sm-1 control-label">Autor</label>
 									<div class="col-sm-4"> 
-										<input type="text" class="form-control" id="autor" placeholder="Autor" name="autor"/>
+										<input type="text" class="form-control" id="autores" placeholder="Autor" name="autores"/>
 									</div>
 									<a class="btn btn-primary" href="javascript:void(0)" id="addAutor">
 									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -96,14 +96,18 @@
 										<input type="text" class="form-control" id="isbn" placeholder="ISBN" name="isbn"/>
 									</div>
 								</div>
-								
+																
 								<!-- 
+=======
+						
+>>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 								<div class="form-group row">
 									<label for="exemplares" class="col-sm-1 control-label">Exemplares</label>
 									<div class="col-sm-2">  
 										<input type="text" class="form-control"	id="exemplares" placeholder="Quantidade" name="exemplares"/>
 									</div>
 								</div>
+<<<<<<< HEAD
 								
 								 -->
 								
@@ -118,9 +122,9 @@
 				                    </div>
 								</div>
 								
-								<div class="form-group">
-								    <label for="exampleFormControlFile1">Anexar capa do livro</label>
-								    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+								<div class="form-group row">
+								    <label for="file">Anexar capa do livro</label>
+								    <input type="file" name="file"/><br></br>
 								  </div>
 								
 								</div>
@@ -157,10 +161,6 @@
 		</div>		
 	</div>
 	
-	
-	
-
-  
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </body>
