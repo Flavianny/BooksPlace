@@ -64,6 +64,21 @@
 	}
 	
 
+table td{
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+table td a{
+  width: 100%;
+  float:left;
+}
+
+table tbody tr:hover td{
+  background-color: #d4ebff;
+}	
+	
+
 	
 	
 	
