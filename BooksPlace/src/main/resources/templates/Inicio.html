@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Inicio</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+</head>
+<body>
+
+	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                	<img alt="BooksPlace" src="/images/book.ico" /> 
+                </a>
+            </div>
+        </div>
+	</nav>
+	
+	
+	<div class="container-fluid">
+		<div class="panel-default">
+			<div class="card">
+			
+				<div class="card-header"> 
+				
+		 			<div class="BooksPlace-titulo-panel-inicio text">
+		 			
+			  		<h5><FONT FACE=Time size=" 6 ">Books Place</FONT></h5>
+		 			
+		 			</div>
+		 			
+				</div> 				
+	 			
+	 			<div class="card-body">
+					
+				    	<div class="panel panel-default">
+			    		
+			    		<div class="panel-body">
+			    			<form class="form-row align-items-center">
+    							<div class="col-auto">
+      								<a type="submit" class="btn btn-primary botoes-inicio"  th:href="@{/livros}">Livros</a>
+    							</div>
+    							
+    							<div class="col-auto">
+      								<button type="submit" class="btn btn-primary botoes-inicio" th:href="@{/leitores}">Leitores</button>
+    							</div>
+  							
+  							
+    							<div class="col-auto">
+      								<button type="submit" class="btn btn-primary botoes-inicio" th:href="@{/emprestimos}">Emprestimos</button>
+    							</div>
+  							</form>
+			    		</div>
+			    			
+			    		</div>
+			    </div>
+			 </div>
+			</div>
+		</div>
+	
+
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
