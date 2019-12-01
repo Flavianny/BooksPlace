@@ -14,8 +14,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 /**
- * Classe utilizada para representar a entidade livro que será manipulada 
- * dentro do sistema.
+ * Classe utilizada para representar a entidade livro que será manipulada dentro
+ * do sistema.
+ * 
  * @author flavianny
  *
  */
@@ -25,40 +26,40 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotEmpty(message = " O campo Título é obrigatório")
 	@Size(max = 50, message = "O Título não deve obter mais de 50 caracteres")
 	private String titulo;
-	
+
 	@NotEmpty(message = "O campo Descrição é obrigatória")
 	@Size(max = 60, message = "A Descrição não deve obter mais de 60 caracteres")
 	private String descricao;
-	
+
 	@NotEmpty(message = "O campo Gerero é obrigatório")
 	@Size(max = 60, message = "O Genero não deve obter mais de 60 caracteres")
 	private String genero;
-	
+
 	/**
-	 * @deprecated Essa variável não deveria ser utilizada com o tipo String,
-	 * e sim com o tipo int.
+	 * @deprecated Essa variável não deveria ser utilizada com o tipo String, e sim
+	 *             com o tipo int.
 	 */
 	@NotEmpty(message = "O campo Ano é obrigatório")
 	@Size(max = 4, message = "Ano não deve obter mais de 4 caracteres")
 	private String ano;
-	
+
 	@NotEmpty(message = "O campo Autor é obrigatório")
 	@Size(max = 40, message = "O Autor não deve obter mais de 40 caracteres")
 	private ArrayList<String> autores;
-	
+
 	@NotEmpty(message = "O campo ISBN é obrigatório")
 	@Size(max = 100, message = "O ISBN não deve obter mais de 100 caracteres")
 	private String isbn;
-	
+
 	private int exemplares;
-	
+
 	@Enumerated(EnumType.STRING)
 	private StatusLivro status;
-	
+
 	@Lob
 	private byte[] capa;
 
@@ -126,6 +127,14 @@ public class Livro {
 		this.exemplares = exemplares;
 	}
 
+	public StatusLivro getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusLivro status) {
+		this.status = status;
+	}
+
 	public byte[] getCapa() {
 		return capa;
 	}
@@ -134,11 +143,10 @@ public class Livro {
 		this.capa = capa;
 	}
 
-
 	public boolean isIndisponivel() {
-		return StatusLivro.INDISPONIVEL.equals(this.status); 
+		return StatusLivro.INDISPONIVEL.equals(this.status);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -151,6 +159,7 @@ public class Livro {
 		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
@@ -194,6 +203,8 @@ public class Livro {
 			if (other.isbn != null)
 				return false;
 		} else if (!isbn.equals(other.isbn))
+			return false;
+		if (status != other.status)
 			return false;
 		if (titulo == null) {
 			if (other.titulo != null)
