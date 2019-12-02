@@ -101,7 +101,6 @@ public class LivroController {
 		if (erros.hasErrors()) {
 			return mv;
 		}
-
 		try {
 			byte[] capa;
 			capa = file.getBytes();
