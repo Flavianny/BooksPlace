@@ -6,6 +6,8 @@
 <meta charset="UTF-8"/>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>  
+
 <title>Pesquisa de livros</title>
 </head>
 
@@ -46,33 +48,66 @@
 	 			
 	 			<div class="card-body">
 					
-					<table class="table table-bordered table-hover ">
+					<form method="GET" class="form-horizontal" action="/livros" th:object="${filtro}">
+						<div class="form-group">
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input class="form-control" placeholder="Título, Autor, Gênero" 
+									autofocus="autofocus" th:field="*{textoFiltro}">
+										<span class="input-group-btn">
+											<button type="submit" class="btn btn-info">
+											<i class="fas fa-search"> </i>
+											</button>
+										</span>
+								</div>
+							</div>
+							</div>
+					</form>
+					
+					<table class="table table-hover ">
 						<thead class="thead-light ">
 							<tr>
-			    				<th class="text-center col-md-2">Descrição</th>
-			    				<th class="text-center col-md-2">Autor</th>
-			    				<th class="text-center col-md-2">Ano</th>
-			    				<th class="text-center col-md-2">Status</th>
-			    				<th class="text-center col-md-1">serviços</th>
+								<th class="text-center">Título</th>
+			    				<th class="text-center">Descrição</th>
+			    				<th class="text-center">Gênero</th>
+			    				<th class="text-center">Autor</th>
+			    				<th class="text-center">Ano</th>
+			    				<th class="text-center">Exemplares</th>
+			    				<th class="text-center">ISBN</th>
+			    				<th class="text-center">Status</th>
+			    				<th class="text-center">serviços</th>
 							</tr>
 						</thead>
 			
 						<tbody >
-						
 							<tr th:each= "livro : ${livros}">
+								<td class="text-center">
+									<a th:href="@{/livros/emprestimo/{id}(id=${livro.id})}" th:text="${livro.titulo}" ></a>
+								 </td>
 								<td class="text-center" th:text="${livro.descricao}"> </td>
-								<td class="text-center" th:text="${livro.autor}"> </td>
-								<td class="text-right" th:text="${livro.ano}"> </td>
+								<td class="text-center" th:text="${livro.genero}"> </td>
+								<td class="text-center" th:text="${livro.autores}"> </td>
+								<td class="text-center" th:text="${livro.ano}"> </td>
+								<td class="text-center" th:text="${livro.exemplares}"> </td>
+								<td class="text-center" th:text="${livro.isbn}"> </td>
+								
 								<td class="text-center" th:attr="data-role=${livro.id}">
 									<span class="badge" th:text="${livro.status.descricao}"
 									th:classappend="${livro.indisponivel ? 'badge-danger' : 'badge-success'}">
 									</span>
 								 </td>
+								 
+								 
+								 <!-- *** INCONPLETO *** -->
 								<td class="text-center">
-									<a class="btn btn-link-xs" th:ref"">
+									<a class="btn btn-link-xs" th:ref=""
+									title="Editar" rel="tooltip" data-placement="top">
+										<span class="fas fa-pencil-alt"></span>
 									</a>								
 								
-									<a  class="btn btn-link-xs" th:ref"">
+									<a  class="btn btn-link-xs" th:ref=""
+									title="Excluir" rel="tooltip" data-placement="top">
+										<span class="fas fa-trash-alt"></span>
 									</a>								
 								
 								 </td>

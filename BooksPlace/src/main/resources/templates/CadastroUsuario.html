@@ -3,11 +3,12 @@
 		xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"/>
-<title>Cadastro Usuario</title>
+<title>Cadastro de leitor</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 </head>
 <body>
+
 	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
         <div class="container-fluid">
             <div class="navbar-header">
@@ -30,10 +31,11 @@
   				</div>
   				
   				<div class="card-body">
-				<form class="form-horizontal" method="POST" action="/cadastrousuario" th:object="${usuario}">
+
+				<form class="form-horizontal" method="POST" action="/leitores" th:object="${usuario}">
 	
 				<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-					<span th:text="${mensagem}">Usuario salvo com sucesso!!!</span>
+					<span th:text="${mensagem}">Leitor salvo com sucesso!!!</span>
 				</div> 		
 				<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
 					<div th:each="detailedError: ${#fields.detailedErrors()}">
@@ -86,11 +88,12 @@
 				</div>
 				
 				</div>
+				
 				<div class="form-group">
 					<div class="col-sm-offset-1 col-sm-10">
-					
-						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="submit" class="btn btn-primary bt-salvar-usuario">Salvar</button>
 				</div>
+				
 			</div>
     	</div>
     </form>
