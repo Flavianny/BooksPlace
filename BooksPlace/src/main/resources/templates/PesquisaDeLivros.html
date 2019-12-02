@@ -69,28 +69,33 @@
 							<tr>
 								<th class="text-center">Título</th>
 			    				<th class="text-center">Descrição</th>
+			    				<th class="text-center">Gênero</th>
 			    				<th class="text-center">Autor</th>
 			    				<th class="text-center">Ano</th>
-			    				<th class="text-center">Status</th>
 			    				<th class="text-center">Exemplares</th>
+			    				<th class="text-center">ISBN</th>
+			    				<th class="text-center">Status</th>
 			    				<th class="text-center">serviços</th>
 							</tr>
 						</thead>
 			
 						<tbody >
 							<tr th:each= "livro : ${livros}">
-								<td class="text-center" th:text="${livro.titulo}"> </td>
+								<td class="text-center">
+									<a th:href="@{/livros/emprestimo/{id}(id=${livro.id})}" th:text="${livro.titulo}" ></a>
+								 </td>
 								<td class="text-center" th:text="${livro.descricao}"> </td>
-								<td class="text-center" th:text="${livro.autor}"> </td>
+								<td class="text-center" th:text="${livro.genero}"> </td>
+								<td class="text-center" th:text="${livro.autores}"> </td>
 								<td class="text-center" th:text="${livro.ano}"> </td>
+								<td class="text-center" th:text="${livro.exemplares}"> </td>
+								<td class="text-center" th:text="${livro.isbn}"> </td>
+								
 								<td class="text-center" th:attr="data-role=${livro.id}">
 									<span class="badge" th:text="${livro.status.descricao}"
 									th:classappend="${livro.indisponivel ? 'badge-danger' : 'badge-success'}">
 									</span>
 								 </td>
-								 
-								 <!-- *** INCONPLETO (exemplares) *** -->
-								 <td> </td>
 								 
 								 
 								 <!-- *** INCONPLETO *** -->
