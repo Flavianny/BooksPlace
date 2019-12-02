@@ -32,7 +32,7 @@
   				
   				<div class="card-body">
 
-				<form class="form-horizontal" method="POST" action="/leitores" th:object="${usuario}">
+				<form class="form-horizontal" method="POST" action="/leitores" th:object="${leitor}">
 	
 				<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 					<span th:text="${mensagem}">Leitor salvo com sucesso!!!</span>

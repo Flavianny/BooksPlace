@@ -22,7 +22,4 @@ public class LivroFilter {
 	public void setListaFiltro(ArrayList<String> listaFiltro) {
 		this.listaFiltro = listaFiltro;
 	}
-	
-	
-	
 }
