@@ -1,6 +1,7 @@
 package com.BooksPlace.BooksPlace.Controller;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,21 @@ import com.BooksPlace.BooksPlace.repository.Usuarios;
  *
  */
 @Controller
-@RequestMapping("/cadastrousuario")
+@RequestMapping("/leitores")
 public class UsuarioController {
 	@Autowired
 	private Usuarios usuarios;
+	
+//	busca todos os leitores 
+//	OBS: adicionar a filtragem
+	@RequestMapping
+	public ModelAndView buscarLeitor() {
+		
+		List<Usuario> todosUsuarios = usuarios.findAll();
+		ModelAndView mv = new ModelAndView("ListaDeLeitores");
+		mv.addObject("leitores", todosUsuarios);
+		return mv;
+	}
 	
 	/**
 	 * Método novo

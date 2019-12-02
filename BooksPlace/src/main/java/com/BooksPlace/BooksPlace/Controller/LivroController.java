@@ -1,4 +1,5 @@
 package com.BooksPlace.BooksPlace.Controller;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
@@ -21,6 +22,7 @@ import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
 import com.BooksPlace.BooksPlace.repository.Livros;
 import com.BooksPlace.BooksPlace.repository.filter.LivroFilter;
+
 /**
  * Classe utilizada para controlar as requisições feitas para entidade livro.
  * @author flavianny
@@ -32,6 +34,7 @@ public class LivroController {
 	
 	@Autowired
 	private Livros livros;
+
 	private Livro livro;
 	
 	private StreamedContent imagem;
@@ -75,6 +78,7 @@ public class LivroController {
 	@RequestMapping
 	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
 		
+
 //		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro());
 //		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro() );
 		
@@ -96,11 +100,17 @@ public class LivroController {
 	 * @author flavianny
 	 */
 	@RequestMapping(method = RequestMethod.POST)
+
 	public ModelAndView salvar(@RequestParam("file") MultipartFile file, @Validated Livro livro, Errors erros) {	
 		ModelAndView mv = new ModelAndView("CadastroLivro");
 		if (erros.hasErrors()) {
 			return mv;
 		}
+<<<<<<< HEAD
+=======
+
+		byte[] capa;
+>>>>>>> cfb27d1d4e4ca62ef2d6085576c3755af48f9477
 		try {
 			byte[] capa;
 			capa = file.getBytes();

@@ -49,6 +49,7 @@ public class Livro {
 
 	@NotEmpty(message = "O campo Autor é obrigatório")
 	@Size(max = 40, message = "O Autor não deve obter mais de 40 caracteres")
+
 	private ArrayList<String> autores;
 
 	@NotEmpty(message = "O campo ISBN é obrigatório")
@@ -213,5 +214,4 @@ public class Livro {
 			return false;
 		return true;
 	}
-
 }

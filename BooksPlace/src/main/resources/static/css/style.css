@@ -7,6 +7,7 @@
 	border-width: 30px;
 }
 
+
 .BooksPlace-link-panel{
 	float:right;
 	padding: 0px;
@@ -17,10 +18,12 @@
 	float:left;
 }
 
+
 .table{
 	margin-top: -12px;
 	margin-bottom: -12px;
 }
+
 
 .p {
 	margin-left: 20px;
@@ -33,37 +36,53 @@
 .btn-danger {
 	margin-top: 10px;
 }
+
 	
 .alert{
 	margin-left: 20px;
 	margin-right: 20px;
 	margin-top: 20px;
 	}
+
 	
 .panel-body {
-		margin-left: 40px;
-		margin-right: 40px;
-	}
+	margin-left: 40px;
+	margin-right: 40px;
+}
 
 	
 .bt-salvar-usuario{
 	margin-left: 125px;
 }	
 
+
 .bt-salvar-livro{
 	margin-left: 138px;
 }
+
 	
 .panel-title{
 	margin-left: 40px;
-	}
+}
+
 	
 .form-horizontal{
 	margin-left: -15px;
 	margin-top: 10px;
-	}
-	
+}
 
 	
-	
-	
+.BooksPlace-titulo-panel-inicio{
+	text-align: center;
+}
+
+.botoes-inicio{
+    width: 350px;
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 18px;
+	margin-bottom:50%;
+}	
+
+}
