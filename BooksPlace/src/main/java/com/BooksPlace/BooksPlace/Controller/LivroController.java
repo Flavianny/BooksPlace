@@ -1,17 +1,11 @@
 package com.BooksPlace.BooksPlace.Controller;
-<<<<<<< HEAD
 
-import java.util.Arrays;
-import java.util.List;
-
-=======
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -19,24 +13,16 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-<<<<<<< HEAD
-import org.springframework.web.servlet.ModelAndView;
-
-=======
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
 import com.BooksPlace.BooksPlace.repository.Livros;
 import com.BooksPlace.BooksPlace.repository.filter.LivroFilter;
-<<<<<<< HEAD
 
-=======
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 /**
  * Classe utilizada para controlar as requisições feitas para entidade livro.
  * @author flavianny
@@ -48,8 +34,7 @@ public class LivroController {
 	
 	@Autowired
 	private Livros livros;
-<<<<<<< HEAD
-=======
+
 	private Livro livro;
 	
 	private StreamedContent imagem;
@@ -69,8 +54,6 @@ public class LivroController {
 		  ByteArrayInputStream(livro.getCapa())); 
 		  } 
 	  }
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
-
 	
 	/**
 	 * Método novo
@@ -95,12 +78,7 @@ public class LivroController {
 	@RequestMapping
 	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
 		
-<<<<<<< HEAD
-		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro(),filtro.getTextoFiltro(),filtro.getTextoFiltro());
-		
-		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
-		mv.addObject("livros", todosLivros);
-=======
+
 //		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro());
 //		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro() );
 		
@@ -111,7 +89,6 @@ public class LivroController {
 		
 		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
 		mv.addObject("livros", livros);
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 		return mv; 
 	}
 	
@@ -123,17 +100,13 @@ public class LivroController {
 	 * @author flavianny
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-<<<<<<< HEAD
-	public ModelAndView salvar(@Validated Livro livro, Errors erros) {	
-=======
+
 	public ModelAndView salvar(@RequestParam("file") MultipartFile file, @Validated Livro livro, Errors erros) {	
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 		ModelAndView mv = new ModelAndView("CadastroLivro");
 		if (erros.hasErrors()) {
 			return mv;
 		}
-<<<<<<< HEAD
-=======
+
 		byte[] capa;
 		try {
 			capa = file.getBytes();
@@ -143,7 +116,6 @@ public class LivroController {
 			e.printStackTrace();
 		}
 		//uploadImagemLivro(file);
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 		livros.save(livro);
 		mv.addObject("mensagem", "Livro salvo com sucesso");
 		return mv;	

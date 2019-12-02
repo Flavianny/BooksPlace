@@ -1,13 +1,5 @@
 package com.BooksPlace.BooksPlace.Model;
 
-<<<<<<< HEAD
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-=======
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -16,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -55,27 +46,19 @@ public class Livro {
 	
 	@NotEmpty(message = "O campo Autor é obrigatório")
 	@Size(max = 40, message = "O Autor não deve obter mais de 40 caracteres")
-<<<<<<< HEAD
-	private String autor;
-=======
+
 	private ArrayList<String> autores;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 	
 	@NotEmpty(message = "O campo ISBN é obrigatório")
 	@Size(max = 40, message = "O ISBN não deve obter mais de 40 caracteres")
 	private String isbn;
 	
-<<<<<<< HEAD
-	@Enumerated(EnumType.STRING)
-	private StatusLivro status;
-=======
 	private int exemplares;
 	
 	private StatusLivro status;
 	
 	@Lob
 	private byte[] capa;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 
 	public long getId() {
 		return id;
@@ -117,21 +100,12 @@ public class Livro {
 		this.ano = ano;
 	}
 
-<<<<<<< HEAD
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-=======
 	public ArrayList<String> getAutores() {
 		return autores;
 	}
 
 	public void setAutores(ArrayList<String> autores) {
 		this.autores = autores;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 	}
 
 	public String getIsbn() {
@@ -142,14 +116,6 @@ public class Livro {
 		this.isbn = isbn;
 	}
 
-<<<<<<< HEAD
-	public StatusLivro getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusLivro status) {
-		this.status = status;
-=======
 	public int getExemplares() {
 		return exemplares;
 	}
@@ -164,7 +130,6 @@ public class Livro {
 
 	public void setCapa(byte[] capa) {
 		this.capa = capa;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 	}
 
 
@@ -177,14 +142,6 @@ public class Livro {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((ano == null) ? 0 : ano.hashCode());
-<<<<<<< HEAD
-		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
-		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-=======
 		result = prime * result + ((autores == null) ? 0 : autores.hashCode());
 		result = prime * result + Arrays.hashCode(capa);
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
@@ -192,7 +149,6 @@ public class Livro {
 		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
@@ -211,30 +167,20 @@ public class Livro {
 				return false;
 		} else if (!ano.equals(other.ano))
 			return false;
-<<<<<<< HEAD
-		if (autor == null) {
-			if (other.autor != null)
-				return false;
-		} else if (!autor.equals(other.autor))
-=======
 		if (autores == null) {
 			if (other.autores != null)
 				return false;
 		} else if (!autores.equals(other.autores))
 			return false;
 		if (!Arrays.equals(capa, other.capa))
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
 		} else if (!descricao.equals(other.descricao))
 			return false;
-<<<<<<< HEAD
-=======
 		if (exemplares != other.exemplares)
 			return false;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 		if (genero == null) {
 			if (other.genero != null)
 				return false;
@@ -247,11 +193,6 @@ public class Livro {
 				return false;
 		} else if (!isbn.equals(other.isbn))
 			return false;
-<<<<<<< HEAD
-		if (status != other.status)
-			return false;
-=======
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 		if (titulo == null) {
 			if (other.titulo != null)
 				return false;
@@ -259,9 +200,4 @@ public class Livro {
 			return false;
 		return true;
 	}
-<<<<<<< HEAD
-	 
-=======
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
-
 }

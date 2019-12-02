@@ -1,10 +1,7 @@
 package com.BooksPlace.BooksPlace.Controller;
 
 import java.util.Arrays;
-<<<<<<< HEAD
-=======
 import java.util.List;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,17 +22,10 @@ import com.BooksPlace.BooksPlace.repository.Usuarios;
  *
  */
 @Controller
-<<<<<<< HEAD
-@RequestMapping("/cadastrousuario")
-=======
 @RequestMapping("/leitores")
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 public class UsuarioController {
 	@Autowired
 	private Usuarios usuarios;
-	
-<<<<<<< HEAD
-=======
 	
 //	busca todos os leitores 
 //	OBS: adicionar a filtragem
@@ -48,9 +38,6 @@ public class UsuarioController {
 		return mv;
 	}
 	
-	
-	
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 	/**
 	 * Método novo
 	 * Responsável por atender a requisição ("/novo") a qual 
