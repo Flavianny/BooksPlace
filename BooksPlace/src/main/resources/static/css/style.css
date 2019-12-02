@@ -71,6 +71,26 @@
 	margin-top: 10px;
 }
 
+
+table td{
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+table th{
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+table td a{
+  float:left;
+}
+
+table tbody tr:hover td{
+  background-color: #d4ebff;
+}	
+	
+
 	
 .BooksPlace-titulo-panel-inicio{
 	text-align: center;
