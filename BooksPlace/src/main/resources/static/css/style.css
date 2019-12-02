@@ -91,6 +91,16 @@ table tbody tr:hover td{
 }	
 	
 
+.btn-salvar-emp{
+	margin-left: 80px;
+}	
+
+.foto-capa{
+	position: fixed;
+	top: 182px;
+	left: 630px;
+}	
+
 	
 .BooksPlace-titulo-panel-inicio{
 	text-align: center;
