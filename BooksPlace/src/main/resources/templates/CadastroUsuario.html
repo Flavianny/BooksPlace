@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-		xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8"/>
 <title>Cadastro de leitor</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
@@ -17,6 +20,23 @@
                 </a>
             </div>
         </div>
+=======
+<meta charset="UTF-8" />
+<title>Cadastro Usuario</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-light navbar-static-top"
+		style="background-color: #B0C4DE">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="BooksPlace"
+					src="/images/book.ico" />
+				</a>
+			</div>
+		</div>
+>>>>>>> cadastro-livro
 	</nav>
 
 
@@ -24,8 +44,9 @@
 	<div class="container-fluid">
 		<div class="panel-default">
 			<div class="card">
-  				<div class="card-header">
+				<div class="card-header">
 					<div class="BooksPlace-titulo-panel">
+<<<<<<< HEAD
 						<h5><FONT FACE=Times>Cadastro de Leitor</FONT></h5>
 					</div>
   				</div>
@@ -58,51 +79,98 @@
 					<label for="cpf" class="col-sm-1 control-label">CPF</label>
 					<div class="col-sm-4"> 
 						<input type="text" class="form-control" id="cpf" placeholder="CPF" name="cpf"/>
+=======
+						<h5>
+							<FONT FACE=Times>Cadastro de Leitor</FONT>
+						</h5>
+>>>>>>> cadastro-livro
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="telefone" class="col-sm-1 control-label">Telefone</label>
-					<div class="col-sm-2">  
-						<input type="text" class="form-control"	id="telefone" placeholder="Telefone" name="telefone"/>
-					</div>
-				</div>			
-				<div class="form-group row">
-					<label for="endereco" class="col-sm-1 control-label">Endereço</label>
-					<div class="col-sm-2">  
-						<input type="text" class="form-control"	id="endereco" placeholder="Endereço" name="endereco"/>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="cidade" class="col-sm-1 control-label">Cidade</label>
-					<div class="col-sm-2">  
-						<input type="text" class="form-control"	id="cidade" placeholder="Cidade" name="cidade"/>
-					</div>
-				</div>				
-				<div class="form-group row">
-					<label for="estado" class="col-sm-1 control-label">Estado</label>
-					<div class="col-sm-2">
-						<select class="form-control" name="estado">
-							<option th:each = "estado : ${estados}" th:value = "${estado}" th:text = "${estado.descricao}" ></option>
-                    	</select>
-                    </div>
-				</div>
-				
-				</div>
-				
-				<div class="form-group">
-					<div class="col-sm-offset-1 col-sm-10">
-						<button type="submit" class="btn btn-primary bt-salvar-usuario">Salvar</button>
-				</div>
-				
-			</div>
-    	</div>
-    </form>
+
+				<div class="card-body">
+					<form class="form-horizontal" method="POST"
+						action="/cadastrousuario" th:object="${usuario}">
+
+						<div class="alert alert-success"
+							th:if="${!#strings.isEmpty(mensagem)}">
+							<span th:text="${mensagem}">Usuario salvo com sucesso!!!</span>
+						</div>
+						<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+							<div th:each="detailedError: ${#fields.detailedErrors()}">
+								<span th:text="${detailedError.message}"></span>
+							</div>
+						</div>
+
+
+
+						<div class="panel panel-default">
+
+							<div class="panel-body">
+								<div class="form-group row"
+									th:classappend="${#fields.hasErrors('nome')} ? has-error">
+									<label for="nome" class="col-sm-1 control-label">Nome<h11>*</h11></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="nome"
+											placeholder="Nome" name="nome" />
+									</div>
+								</div>
+								<div class="form-group row"
+									th:classappend="${#fields.hasErrors('cpf')} ? has-error">
+									<label for="cpf" class="col-sm-1 control-label">CPF<h11>*</h11></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="cpf"
+											placeholder="XXX.XXX.XXX-XX" name="cpf" />
+											<script type="text/javascript"> $("#cpf").mask("000.000.000-00");</script>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="telefone" class="col-sm-1 control-label">Telefone</label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="telefone"
+											placeholder="(XX) XXXX-XXXX" name="telefone" />
+											<script type="text/javascript"> $("#telefone").mask("(00) 0000-0000");</script>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="endereco" class="col-sm-1 control-label">Endereço</label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="endereco"
+											placeholder="Endereço" name="endereco" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="cidade" class="col-sm-1 control-label">Cidade</label>
+									<div class="col-sm-2">
+										<input type="text" class="form-control" id="cidade"
+											placeholder="Cidade" name="cidade" />
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="estado" class="col-sm-1 control-label">Estado</label>
+									<div class="col-sm-2">
+										<select class="form-control" name="estado">
+											<option th:each="estado : ${estados}" th:value="${estado}"
+												th:text="${estado.descricao}"></option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-offset-1 col-sm-10">
+									<button type="submit" class="btn btn-primary bt-salvar-usuario">Salvar</button>
+								</div>
+
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-    
-<script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -69,7 +69,16 @@
 .form-horizontal{
 	margin-left: -15px;
 	margin-top: 10px;
+<<<<<<< HEAD
 }
+=======
+	}
+
+h11 {
+    color:red;
+	}
+	
+>>>>>>> cadastro-livro
 
 	
 .BooksPlace-titulo-panel-inicio{

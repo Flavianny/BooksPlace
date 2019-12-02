@@ -31,7 +31,6 @@ public class Livro {
 	@Size(max = 50, message = "O Título não deve obter mais de 50 caracteres")
 	private String titulo;
 
-	@NotEmpty(message = "O campo Descrição é obrigatória")
 	@Size(max = 60, message = "A Descrição não deve obter mais de 60 caracteres")
 	private String descricao;
 
@@ -44,7 +43,6 @@ public class Livro {
 	 *             com o tipo int.
 	 */
 	@NotEmpty(message = "O campo Ano é obrigatório")
-	@Size(max = 4, message = "Ano não deve obter mais de 4 caracteres")
 	private String ano;
 
 	@NotEmpty(message = "O campo Autor é obrigatório")
