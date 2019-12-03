@@ -12,4 +12,8 @@ import com.BooksPlace.BooksPlace.Model.Leitor;
 public interface Leitores extends JpaRepository<Leitor, Long>{
 
 	public List<Leitor> findByNomeContainingOrCpfContaining(String textoFiltro1, String textoFiltro2);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> inicio
