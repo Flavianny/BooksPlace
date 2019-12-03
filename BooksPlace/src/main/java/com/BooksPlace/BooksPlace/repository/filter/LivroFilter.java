@@ -14,9 +14,6 @@ public class LivroFilter {
 	public void setTextoFiltro(String textoFiltro) {
 		this.textoFiltro = textoFiltro;
 	}
-<<<<<<< HEAD
-	
-=======
 
 	public ArrayList<String> getListaFiltro() {
 		return listaFiltro;
@@ -25,5 +22,4 @@ public class LivroFilter {
 	public void setListaFiltro(ArrayList<String> listaFiltro) {
 		this.listaFiltro = listaFiltro;
 	}
->>>>>>> 457fd37f9b2790d346ddb504f369061fdb093083
 }
