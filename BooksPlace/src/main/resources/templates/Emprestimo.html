@@ -77,7 +77,11 @@
 							<div class="form-group row">
 								<label for="leitor" class="col-sm-1 control-label">Leitor</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="leitor" placeholder="Leitor" name="leitor"/>
+									<input type="text" list="leitoresPresentesNoBD" class="form-control" id="leitor" placeholder="Leitor" name="leitor"/>
+									<datalist id="leitoresPresentesNoBD" th:object="${todosLeitores}">
+										<option th:each= "leitor : ${todosLeitores}" th:value="${leitor.codigo}" th:text="${leitor.nome}"></option>
+									</datalist>
+									
 								</div>
 							</div>
 

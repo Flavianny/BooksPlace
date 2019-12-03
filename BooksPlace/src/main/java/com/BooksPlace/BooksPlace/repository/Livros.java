@@ -11,6 +11,5 @@ import com.BooksPlace.BooksPlace.Model.Livro;
  */
 public interface Livros extends JpaRepository<Livro, Long>{
 	public List<Livro> findByTituloContainingOrGeneroContaining(String textoFiltro1, String textoFiltro3);
-//	public List<Livro> findByTituloContainingOrAutoresContainingOrGeneroContaining(String textoFiltro1, ArrayList<String> textoFiltro2, String textoFiltro3);
 
 	}
