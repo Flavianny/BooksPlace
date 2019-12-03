@@ -1,5 +1,4 @@
 package com.BooksPlace.BooksPlace.Controller;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
@@ -35,7 +34,6 @@ public class LivroController {
 
 	@Autowired
 	private Livros livros;
-
 	private Livro livro;
 
 	private StreamedContent imagem;
@@ -79,16 +77,14 @@ public class LivroController {
 	 */
 	@RequestMapping
 	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
-
-//		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContainingOrGeneroContaining(filtro.getTextoFiltro(), filtro.getListaFiltro(), filtro.getTextoFiltro());
-		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll()
-				: livros.findByTituloContainingOrGeneroContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro());
-
+		
+		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrGeneroContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro());
+		
 		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
 		mv.addObject("livros", todosLivros);
-		return mv;
+		return mv; 
 	}
-
+	
 	/**
 	 * Método salvar Utilizado para salvar um livro no banco de dados.
 	 * 
@@ -98,12 +94,11 @@ public class LivroController {
 	 */
 	@RequestMapping(method = RequestMethod.POST)
 
-	public ModelAndView salvar(@RequestParam("file") MultipartFile file, @Validated Livro livro, Errors erros) {
+	public ModelAndView salvar(@RequestParam("file") MultipartFile file, @Validated Livro livro, Errors erros) {	
 		ModelAndView mv = new ModelAndView("CadastroLivro");
 		if (erros.hasErrors()) {
 			return mv;
 		}
-
 		try {
 			byte[] capa;
 			capa = file.getBytes();
