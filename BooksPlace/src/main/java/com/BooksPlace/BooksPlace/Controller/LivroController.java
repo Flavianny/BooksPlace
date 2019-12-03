@@ -22,7 +22,6 @@ import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
 import com.BooksPlace.BooksPlace.repository.Livros;
 import com.BooksPlace.BooksPlace.repository.filter.LivroFilter;
-
 /**
  * Classe utilizada para controlar as requisições feitas para entidade livro.
  * @author flavianny
@@ -78,19 +77,15 @@ public class LivroController {
 	@RequestMapping
 	public ModelAndView buscarLivro(@ModelAttribute("filtro") LivroFilter filtro) {
 		
-
-//		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutorContainingOrGeneroContaining(filtro.getTextoFiltro());
-//		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro() );
 		
-//		String  autor = filtro.getAutor() == null ? "%" : filtro.getAutor();
-//		String  genero = filtro.getGenero() == null ? "%" : filtro.getGenero();
-//		List<Livro> todosLivros = livros.findByTituloContainingOrAutorContaining(titulo, autor);
-//		List<Livro> todosLivros = livros.findByTituloContaining(titulo);
+//		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrAutoresContainingOrGeneroContaining(filtro.getTextoFiltro(), filtro.getListaFiltro(), filtro.getTextoFiltro());
+		List<Livro> todosLivros = filtro.getTextoFiltro() == null ? livros.findAll() : livros.findByTituloContainingOrGeneroContaining(filtro.getTextoFiltro(),filtro.getTextoFiltro());
 		
 		ModelAndView mv = new ModelAndView("PesquisaDeLivros");
-		mv.addObject("livros", livros);
+		mv.addObject("livros", todosLivros);
 		return mv; 
-	}
+	} 
+	
 	
 	/**
 	 * Método salvar
@@ -106,11 +101,7 @@ public class LivroController {
 		if (erros.hasErrors()) {
 			return mv;
 		}
-<<<<<<< HEAD
-=======
 
-		byte[] capa;
->>>>>>> cfb27d1d4e4ca62ef2d6085576c3755af48f9477
 		try {
 			byte[] capa;
 			capa = file.getBytes();

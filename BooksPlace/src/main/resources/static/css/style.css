@@ -1,7 +1,7 @@
 .panel-default{
 	margin-top: 15px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
 
 	border: thick;
 	border-width: 30px;
@@ -79,6 +79,35 @@ h11 {
 	}
 	
 >>>>>>> cadastro-livro
+
+
+table td{
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+table th{
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+table td a{
+  float:left;
+}
+
+table tbody tr:hover td{
+  background-color: #d4ebff;
+}	
+	
+.btn-salvar-emp{
+	margin-left: 80px;
+}	
+
+.foto-capa{
+	position: fixed;
+	top: 182px;
+	left: 630px;
+}	
 
 	
 .BooksPlace-titulo-panel-inicio{
