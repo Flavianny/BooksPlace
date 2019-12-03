@@ -1,10 +1,7 @@
 package com.BooksPlace.BooksPlace.Controller;
 
 import java.util.Arrays;
-<<<<<<< HEAD
-=======
 import java.util.List;
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,75 +13,68 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.BooksPlace.BooksPlace.Model.Estado;
-import com.BooksPlace.BooksPlace.Model.Usuario;
-import com.BooksPlace.BooksPlace.repository.Usuarios;
+import com.BooksPlace.BooksPlace.Model.Leitor;
+import com.BooksPlace.BooksPlace.repository.Leitores;
+import com.BooksPlace.BooksPlace.repository.filter.LeitorFilter;
 
 /**
- * Classe utilizada para controlar as requisições feitas para entidade usuário.
+ * Classe utilizada para controlar as requisições feitas para entidade leitor.
  * @author airla
  *
  */
 @Controller
-<<<<<<< HEAD
-@RequestMapping("/cadastrousuario")
-=======
 @RequestMapping("/leitores")
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
-public class UsuarioController {
+public class LeitorController {
 	@Autowired
-	private Usuarios usuarios;
-	
-<<<<<<< HEAD
-=======
+	private Leitores leitores;
 	
 //	busca todos os leitores 
 //	OBS: adicionar a filtragem
 	@RequestMapping
-	public ModelAndView buscarLeitor() {
+	public ModelAndView buscarLeitor(@ModelAttribute("filtro") LeitorFilter filtro) {
 		
-		List<Usuario> todosUsuarios = usuarios.findAll();
+		List<Leitor> todosLeitores = filtro.getTextoFiltro() == null ? leitores.findAll() : leitores.findByNomeContainingOrCpfContaining(filtro.getTextoFiltro(), filtro.getTextoFiltro());
+		
 		ModelAndView mv = new ModelAndView("ListaDeLeitores");
-		mv.addObject("leitores", todosUsuarios);
+		mv.addObject("leitores", todosLeitores);
 		return mv;
 	}
 	
-	
-	
->>>>>>> 3421a8dbc9ab4766be6fbf2522d4d18f1afe95c8
 	/**
 	 * Método novo
 	 * Responsável por atender a requisição ("/novo") a qual 
-	 * exibirá uma view com o formulario de cadastro de usuário.
+	 * exibirá uma view com o formulario de cadastro de leitor.
 	 * @author airla
 	 */
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mv = new ModelAndView("CadastroUsuario");
-		mv.addObject(new Usuario());
+		ModelAndView mv = new ModelAndView("CadastroLeitor");
+		mv.addObject(new Leitor());
 		return mv;
 	}
 	
 	/**
 	 * Método salvar
-	 * Utilizado para salvar um usuário no banco de dados.
-	 * @param usuario usuário que contém os dados a serem salvos.
-	 * @param errors representa os possíveis erros de validação do usuário.
+	 * Utilizado para salvar um leitor no banco de dados.
+	 * @param leitor leitor que contém os dados a serem salvos.
+	 * @param errors representa os possíveis erros de validação do leitor.
 	 * @author airla
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(@Validated Usuario usuario, Errors errors) {
+	public ModelAndView salvar(@Validated Leitor leitor, Errors errors) {
 		//TODO: Salvar no banco de dados
 		
-		ModelAndView mv = new ModelAndView("CadastroUsuario");	
+		ModelAndView mv = new ModelAndView("CadastroLeitor");	
 		
 		if(errors.hasErrors()) {
 			return mv;
 		}
 		
-		usuarios.save(usuario);
-		mv.addObject("mensagem", "Usuário salvo com sucesso!");
+		leitores.save(leitor);
+		mv.addObject("mensagem", "Leitor salvo com sucesso!");
 		return mv;
 	}
+	
 	
 	/**
 	 * Método estado

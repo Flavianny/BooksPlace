@@ -12,14 +12,14 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.br.CPF;
 
 /**
- * Classe utilizada para representar a entidade usuário que será manipulada 
+ * Classe utilizada para representar a entidade leitor que será manipulada 
  * dentro do sistema.
  * @author airla
  *
  */
 
 @Entity
-public class Usuario {
+public class Leitor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -102,7 +102,7 @@ public class Usuario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
+		Leitor other = (Leitor) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
