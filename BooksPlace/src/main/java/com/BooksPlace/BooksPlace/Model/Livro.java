@@ -212,9 +212,4 @@ public class Livro {
 			return false;
 		return true;
 	}
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> inicio
