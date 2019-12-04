@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+		>
+<head>
+<meta charset="UTF-8"/>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>  
+
+<title>Pesquisa de Emprestimos</title>
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
+       <div class="container-fluid">
+           <div class="navbar-header">
+               <a class="navbar-brand" href="#">
+               	<img alt="BooksPlace" src="/images/book.ico" /> 
+               </a>
+           </div>
+       </div>	
+	</nav>
+
+
+	<div class="container-fluid">
+		<div class="panel-default">
+			<div class="card">
+			
+
+				<div class="card-header"> 
+				
+		 			<div class="BooksPlace-titulo-panel text">
+		 			
+			  		<h5><FONT FACE=Times>Pesquisa de Emprestimos</FONT></h5>
+		 			
+		 			</div>
+					
+		 			<a class="btn btn-link BooksPlace-link-panel" href="/livros"> Novo livros</a>
+					
+				</div> 				
+					
+			  		
+		
+	 			
+	 			
+	 			<div class="card-body">
+					
+					<table class="table table-hover ">
+						<thead class="thead-light ">
+							<tr>
+								<th class="text-center">Leitor</th>
+			    				<th class="text-center">Livro</th>
+			    				<th class="text-center">Prazo</th>
+			    				<th class="text-center">Status</th>
+							</tr>
+						</thead>
+			
+						<tbody >
+							<tr th:each= "emprestimo : ${emprestimos}">
+								<td class="text-center">
+									<a 
+									th:text="${emprestimo.leitor}" ></a>
+<!-- 									incluir na linha a cima
+ 									th:href="@{/livros/emprestimo/{id}(id=${livro.id})}" -->
+									
+									
+								 </td>
+								<td class="text-center" th:text="${emprestimo.livro}"> </td>
+								<td class="text-center" th:text="${emprestimo.prazo}"> </td>
+								
+								<td class="text-center" th:attr="data-role=${livro.id}">
+									<span class="badge" th:text="${emprestimo.status.descricao}"
+									th:classappend="${emprestimo.indisponivel ? 'badge-danger' : 'badge-success'}">
+									</span>
+								 </td>
+								 
+								 
+								 <!-- *** INCONPLETO *** -->
+								<td class="text-center">
+									<a class="btn btn-link-xs" th:ref=""
+									title="Editar" rel="tooltip" data-placement="top">
+										<span class="fas fa-pencil-alt"></span>
+									</a>								
+								
+									<a  class="btn btn-link-xs" th:ref=""
+									title="Excluir" rel="tooltip" data-placement="top">
+										<span class="fas fa-trash-alt"></span>
+									</a>								
+								
+								 </td>
+							</tr>
+							
+							<tr>
+								<td colspan="5" th:if="${#lists.isEmpty(emprestimos)}">Nenhum emprestimo foi encontrado!</td>	
+							</tr>
+						</tbody>
+			
+					</table>			
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	
+</body>		
+</html>

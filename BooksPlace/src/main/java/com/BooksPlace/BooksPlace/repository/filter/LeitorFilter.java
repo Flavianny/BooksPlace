@@ -11,8 +11,4 @@ public class LeitorFilter {
 	public void setTextoFiltro(String textoFiltro) {
 		this.textoFiltro = textoFiltro;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> inicio
