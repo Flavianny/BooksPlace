@@ -52,7 +52,7 @@
 
 	
 .bt-salvar-usuario{
-	margin-left: 125px;
+	margin-left: 85px;
 }	
 
 
@@ -69,17 +69,12 @@
 .form-horizontal{
 	margin-left: -15px;
 	margin-top: 10px;
-<<<<<<< HEAD
 }
-=======
-	}
 
 h11 {
     color:red;
 	}
 	
->>>>>>> cadastro-livro
-
 
 table td{
   border: 1px solid #ccc;
@@ -124,4 +119,3 @@ table tbody tr:hover td{
 	margin-bottom:50%;
 }	
 
-}
