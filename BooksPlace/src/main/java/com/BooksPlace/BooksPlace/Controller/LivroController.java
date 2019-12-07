@@ -3,8 +3,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import javax.faces.context.FacesContext;
-import javax.faces.event.PhaseId;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
@@ -34,23 +32,27 @@ public class LivroController {
 	private Livros livros;
 	private Livro livro;
 	
-	private StreamedContent imagem;
-
-	public StreamedContent getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(StreamedContent imagem) {
-		this.imagem = imagem;
-	}
-	
-	  public StreamedContent getImagemAtual() throws IOException { FacesContext
-		  context = FacesContext.getCurrentInstance(); if (context.getCurrentPhaseId()
-		  == PhaseId.RENDER_RESPONSE) { return new DefaultStreamedContent(); } else {
-		  return new DefaultStreamedContent(new
-		  ByteArrayInputStream(livro.getCapa())); 
-		  } 
+		
+	  public StreamedContent ImagemAtual() throws IOException { 
+		  //return imagem = (StreamedContent) new ByteArrayResource(livro.getCapa());
+		  return null;
 	  }
+	  
+//	  public BufferedImage getImagemAtual() {
+////		  return (StreamedContent) new ImageIcon(livro.getCapa()).getImage();
+////		  MultipartFile  file = (MultipartFile) new ByteArrayInputStream(livro.getCapa());
+////		  return file;
+//		  try {
+//			  //recupera a imagem do banco usando a entidade livro, poderia ser
+//			  // qualquer byte para a classe ImageIO ler.
+//			  img = ImageIO.read(new ByteArrayInputStream(livro.getCapa()));
+//			  ImageIO.write(img, "png", new File("/tmp/mypng.png"));
+//			  return img;
+//			  } catch (IOException e) {
+//			  e.printStackTrace();
+//			  }
+//		return null;
+//	  }
 	
 	/**
 	 * Método novo
