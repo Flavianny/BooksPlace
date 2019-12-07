@@ -88,16 +88,18 @@
 												 
 								 <!-- *** INCONPLETO *** -->
 								<td class="text-center">
-									<a class="btn btn-link-xs" th:ref=""
+									<a class="btn btn-link-xs" th:href="@{/leitores/{codigo}(codigo=${leitor.codigo})}"
 									title="Editar" rel="tooltip" data-placement="top">
 										<span class="fas fa-pencil-alt"></span>
 									</a>								
 								
-									<a  class="btn btn-link-xs" th:ref=""
+								<!-- 
+								
+									<a  class="btn btn-link-xs" th:href=""
 									title="Excluir" rel="tooltip" data-placement="top">
 										<span class="fas fa-trash-alt"></span>
 									</a>								
-								
+								 -->
 								 </td>
 							</tr>
 							
