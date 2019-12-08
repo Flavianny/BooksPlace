@@ -8,10 +8,11 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>  
 
-<title>Lista de leitores</title>
+<title>Pesquisa de Emprestimos</title>
 </head>
 
 <body>
+
 
 	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
        <div class="container-fluid">
@@ -33,11 +34,11 @@
 				
 		 			<div class="BooksPlace-titulo-panel text">
 		 			
-			  		<h5><FONT FACE=Times>Pesquisa de leitores</FONT></h5>
+			  		<h5><FONT FACE=Times>Pesquisa de Emprestimos</FONT></h5>
 		 			
 		 			</div>
 					
-		 			<a class="btn btn-link BooksPlace-link-panel" href="/leitores/novo"> Novo leitor</a>
+		 			<a class="btn btn-link BooksPlace-link-panel" href="/livros"> Livros</a>
 					
 				</div> 				
 					
@@ -46,65 +47,67 @@
 	 			
 	 			
 	 			<div class="card-body">
-	 			
-					<form method="GET" class="form-horizontal" action="/leitores" th:object="${filtro}">
-						<div class="form-group">
+					
+					<div class=" form-horizontal form-group">
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input class="form-control" placeholder="Nome, CPF" 
-									autofocus="autofocus" th:field="*{textoFiltro}">
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-info">
+									<input class="form-control" placeholder="CPF Leitor"
+										autofocus="autofocus"> <span
+										class="input-group-btn">
+										<button type="submit" class="btn btn-info">
 											<i class="fas fa-search"> </i>
-											</button>
-										</span>
+										</button>
+									</span>
 								</div>
 							</div>
-							</div>
-					</form>	
-
+						</div>	
 					<table class="table table-hover ">
 						<thead class="thead-light ">
 							<tr>
-								<th class="text-center">Nome</th>
-			    				<th class="text-center">CPF</th>
-			    				<th class="text-center">Telefone</th>
-			    				<th class="text-center">Endereço</th>
-			    				<th class="text-center">Estado</th>
-			    				<th class="text-center">Cidade</th>
-			    				<th class="text-center">serviços</th>
+								<th class="text-center">Leitor</th>
+			    				<th class="text-center">Livro</th>
+			    				<th class="text-center">Devolução</th>
+			    				<th class="text-center">Status</th>
 							</tr>
 						</thead>
 			
 						<tbody >
-							<tr th:each= "leitor : ${leitores}">
-								<td class="text-center" th:text="${leitor.nome}"> </td>
-								<td class="text-center" th:text="${leitor.cpf}"> </td>
-								<td class="text-center" th:text="${leitor.telefone}"> </td>
-								<td class="text-center" th:text="${leitor.endereco}"> </td>
-								<td class="text-center" th:text="${leitor.estado}"> </td>
-								<td class="text-center" th:text="${leitor.cidade}"> </td>
-				 				
-												 
+							<tr th:each= "emprestimo : ${emprestimos}">
+								<td class="text-center">
+									<a 
+									th:text="${emprestimo.cpfLeitor}" ></a>
+<!-- 									incluir na linha a cima
+ 									th:href="@{/livros/emprestimo/{id}(id=${livro.id})}" -->
+									
+									
+								 </td>
+								<td class="text-center" th:text="${emprestimo.idLivro}"> </td>
+								<td class="text-center" th:text="${emprestimo.devolucao}"> </td>
+								
+								<td class="text-center" th:attr="data-role=${emprestimo.idEmprestimo}">
+									<span class="badge" th:text="${emprestimo.status.descricao}"
+									th:classappend="${emprestimo.indisponivel ? 'badge-danger' : 'badge-success'}">
+									</span>
+								 </td>
+								 
+								 
 								 <!-- *** INCONPLETO *** -->
 								<td class="text-center">
-									<a class="btn btn-link-xs" th:href="@{/leitores/{codigo}(codigo=${leitor.codigo})}"
+									<a class="btn btn-link-xs" th:ref=""
 									title="Editar" rel="tooltip" data-placement="top">
 										<span class="fas fa-pencil-alt"></span>
 									</a>								
 								
-								<!-- 
-								
-									<a  class="btn btn-link-xs" th:href=""
+									<a  class="btn btn-link-xs" th:ref=""
 									title="Excluir" rel="tooltip" data-placement="top">
 										<span class="fas fa-trash-alt"></span>
 									</a>								
-								 -->
+								
 								 </td>
 							</tr>
 							
 							<tr>
-								<td colspan="6" th:if="${#lists.isEmpty(leitores)}">Nenhum leitor foi encontrado!</td>	
+								<td colspan="5" th:if="${#lists.isEmpty(emprestimos)}">Nenhum emprestimo foi encontrado!</td>	
 							</tr>
 						</tbody>
 			

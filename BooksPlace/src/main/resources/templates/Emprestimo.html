@@ -34,20 +34,17 @@
 			  		<h5><FONT FACE=Times>Empréstimo</FONT></h5>
 		 			
 		 			</div>
-		 			
-		 			<a class="btn btn-link BooksPlace-link-panel" href="/livros"> Livros</a>
-		 			
 				</div> 				
 	 			
 	 			<div class="card-body">
 					
 				    	<div class="panel panel-default">
 			    		
-			    		<div class="panel-body" th:object="${livro}">
+			    		<div class="panel-body">
 							<div class="form-group row">
 								<label for="titulo" class="col-sm-1 control-label">Título</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="titulo" th:field="*{titulo}" name="titulo" disabled/>
+									<input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo"/>
 								</div>
 							</div>
 
@@ -55,7 +52,7 @@
 							<div class="form-group row">
 								<label for="genero" class="col-sm-1 control-label">Gênero</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="genero" th:field="*{genero}" name="genero" disabled/>
+									<input type="text" class="form-control" id="genero" placeholder="Gênero" name="genero"/>
 								</div>
 							</div>
 
@@ -63,25 +60,21 @@
 							<div class="form-group row">
 								<label for="ano" class="col-sm-1 control-label">Ano</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="ano" th:field="*{ano}" name="ano" disabled/>
+									<input type="text" class="form-control" id="ano" placeholder="Ano" name="ano"/>
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<label for="autor" class="col-sm-1 control-label">Autor</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="autor" th:field="*{autores}" name="autor" disabled/>
+									<input type="text" class="form-control" id="autor" placeholder="Autor" name="autor"/>
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<label for="leitor" class="col-sm-1 control-label">Leitor</label>
 								<div class="col-sm-4"> 
-									<input type="text" list="leitoresPresentesNoBD" class="form-control" id="leitor" placeholder="Leitor" name="leitor"/>
-									<datalist id="leitoresPresentesNoBD" th:object="${todosLeitores}">
-										<option th:each= "leitor : ${todosLeitores}" th:value="${leitor.codigo}" th:text="${leitor.nome}"></option>
-									</datalist>
-									
+									<input type="text" class="form-control" id="leitor" placeholder="Leitor" name="leitor"/>
 								</div>
 							</div>
 
@@ -96,18 +89,20 @@
 							<!-- Alinhar  o botão com os campos de input-->		 				
 							<div class="form-group">
 								<div class="col-sm-offset-4 col-sm-10">
-									<button type="submit" class="btn btn-primary btn-salvar-emp" >Salvar</button>
+									<button type="submit" class="btn btn-primary">Salvar</button>
 							</div>
 							
 							
-							<!-- Colocar essa img em paralelo aos campos de input -->		 
-							<div class="card capa-livro border foto-capa" style="width: 19rem;">
-							  <img th:src="*{capa}" class="card-img-top" alt="capa do livro" >
-							  
+							<!-- Colocar essa img em paralelo aos campos de input -->		 			
+							<div class="card capa-livro" style="width: 25rem; ">
+							  <img src="/images/booklogo.png" class="card-img-top" alt="logo booksPlace" >
 							</div>
+
+	
 
 						</div>
 			    	</div>
+										
 				</div>
 			</div>
 		</div>

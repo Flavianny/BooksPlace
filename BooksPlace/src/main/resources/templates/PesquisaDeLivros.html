@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org"
-		>
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>  
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
 
 <title>Pesquisa de livros</title>
 </head>
@@ -14,118 +14,118 @@
 <body>
 
 
-	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
-       <div class="container-fluid">
-           <div class="navbar-header">
-               <a class="navbar-brand" href="#">
-               	<img alt="BooksPlace" src="/images/book.ico" /> 
-               </a>
-           </div>
-       </div>	
+	<nav class="navbar navbar-light navbar-static-top"
+		style="background-color: #B0C4DE">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/inicio"> <img alt="BooksPlace"
+					src="/images/book.ico" />
+				</a>
+			</div>
+		</div>
 	</nav>
 
 
 	<div class="container-fluid">
 		<div class="panel-default">
 			<div class="card">
-			
 
-				<div class="card-header"> 
-				
-		 			<div class="BooksPlace-titulo-panel text">
-		 			
-			  		<h5><FONT FACE=Times>Pesquisa de livros</FONT></h5>
-		 			
-		 			</div>
-					
-		 			<a class="btn btn-link BooksPlace-link-panel" href="/livros/novo"> Novo livro</a>
-					
-				</div> 				
-					
-			  		
-		
-	 			
-	 			
-	 			<div class="card-body">
-					
-					<form method="GET" class="form-horizontal" action="/livros" th:object="${filtro}">
+
+				<div class="card-header">
+
+					<div class="BooksPlace-titulo-panel text">
+
+						<h5>
+							<FONT FACE=Times>Pesquisa de livros</FONT>
+						</h5>
+
+					</div>
+
+					<a class="btn btn-link BooksPlace-link-panel" href="/livros/novo">
+						Novo livro</a>
+
+				</div>
+
+
+
+
+
+				<div class="card-body">
+
+					<form method="GET" class="form-horizontal" action="/livros"
+						th:object="${filtro}">
 						<div class="form-group">
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input class="form-control" placeholder="Título, Autor, Gênero" 
-									autofocus="autofocus" th:field="*{textoFiltro}">
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-info">
+									<input class="form-control" placeholder="Título, Autor, Gênero"
+										autofocus="autofocus" th:field="*{textoFiltro}"> <span
+										class="input-group-btn">
+										<button type="submit" class="btn btn-info">
 											<i class="fas fa-search"> </i>
-											</button>
-										</span>
+										</button>
+									</span>
 								</div>
 							</div>
-							</div>
+						</div>
 					</form>
-					
+
 					<table class="table table-hover ">
 						<thead class="thead-light ">
 							<tr>
 								<th class="text-center">Título</th>
-			    				<th class="text-center">Descrição</th>
-			    				<th class="text-center">Gênero</th>
-			    				<th class="text-center">Autor</th>
-			    				<th class="text-center">Ano</th>
-			    				<th class="text-center">Exemplares</th>
-			    				<th class="text-center">ISBN</th>
-			    				<th class="text-center">Status</th>
-			    				<th class="text-center">serviços</th>
+								<th class="text-center">Descrição</th>
+								<th class="text-center">Gênero</th>
+								<th class="text-center">Autor</th>
+								<th class="text-center">Ano</th>
+								<th class="text-center">Exemplares</th>
+								<th class="text-center">ISBN</th>
+								<th class="text-center">Status</th>
+								<th class="text-center">serviços</th>
 							</tr>
 						</thead>
-			
-						<tbody >
-							<tr th:each= "livro : ${livros}">
-								<td class="text-center">
-									<a th:href="@{/livros/emprestimo/{id}(id=${livro.id})}" th:text="${livro.titulo}" ></a>
-								 </td>
-								<td class="text-center" th:text="${livro.descricao}"> </td>
-								<td class="text-center" th:text="${livro.genero}"> </td>
-								<td class="text-center" th:text="${livro.autores}"> </td>
-								<td class="text-center" th:text="${livro.ano}"> </td>
-								<td class="text-center" th:text="${livro.exemplares}"> </td>
-								<td class="text-center" th:text="${livro.isbn}"> </td>
-								
-								<td class="text-center" th:attr="data-role=${livro.id}">
-									<span class="badge" th:text="${livro.status.descricao}"
+
+						<tbody>
+							<tr th:each="livro : ${livros}">
+								<td class="text-center"><a
+									th:href="@{/livros/emprestimo/{id}(id=${livro.id})}"
+									th:text="${livro.titulo}"></a></td>
+								<td class="text-center" th:text="${livro.descricao}"></td>
+								<td class="text-center" th:text="${livro.genero}"></td>
+								<td class="text-center" th:text="${livro.autores}"></td>
+								<td class="text-center" th:text="${livro.ano}"></td>
+								<td class="text-center" th:text="${livro.exemplares}"></td>
+								<td class="text-center" th:text="${livro.isbn}"></td>
+
+								<td class="text-center" th:attr="data-role=${livro.id}"><span
+									class="badge" th:text="${livro.status.descricao}"
 									th:classappend="${livro.indisponivel ? 'badge-danger' : 'badge-success'}">
-									</span>
-								 </td>
-								 
-								 
-								 <!-- *** INCONPLETO *** -->
-								<td class="text-center">
-									<a class="btn btn-link-xs" th:ref=""
-									title="Editar" rel="tooltip" data-placement="top">
+								</span></td>
+
+
+								<!-- *** INCONPLETO *** -->
+								<td class="text-center"><a class="btn btn-link-xs"
+									th:ref="" title="Editar" rel="tooltip" data-placement="top">
 										<span class="fas fa-pencil-alt"></span>
-									</a>								
-								
-									<a  class="btn btn-link-xs" th:ref=""
-									title="Excluir" rel="tooltip" data-placement="top">
-										<span class="fas fa-trash-alt"></span>
-									</a>								
-								
-								 </td>
+								</a> <a class="btn btn-link-xs" th:ref="" title="Excluir"
+									rel="tooltip" data-placement="top"> <span
+										class="fas fa-trash-alt"></span>
+								</a></td>
 							</tr>
-							
+
 							<tr>
-								<td colspan="5" th:if="${#lists.isEmpty(livros)}">Nenhum livro foi encontrado!</td>	
+								<td colspan="5" th:if="${#lists.isEmpty(livros)}">Nenhum
+									livro foi encontrado!</td>
 							</tr>
 						</tbody>
-			
-					</table>			
+
+					</table>
 				</div>
 			</div>
 		</div>
-	</div>	
-	
+	</div>
+
 	<script src="/js/jquery-3.4.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	
-</body>		
+
+</body>
 </html>
