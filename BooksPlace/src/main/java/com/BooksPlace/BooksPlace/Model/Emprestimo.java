@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Emprestimo {
@@ -18,6 +20,7 @@ public class Emprestimo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idEmprestimo;
 	
+	@Temporal(TemporalType.DATE)
 	private Date devolucao;
 	
 	@ManyToOne

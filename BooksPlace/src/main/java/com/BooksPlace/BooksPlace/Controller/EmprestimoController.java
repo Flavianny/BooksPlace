@@ -71,7 +71,7 @@ public class EmprestimoController {
 		System.out.println("entrei no método");
 		
 		ModelAndView mv = new ModelAndView("Emprestimo");
-//		mv.addObject(livro);
+		mv.addObject(livro);
 		return mv; 
 	}
 	
