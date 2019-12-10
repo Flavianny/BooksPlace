@@ -1,119 +1,154 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org"
-		>
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="UTF-8"/>
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>  
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <title>Lista de leitores</title>
 </head>
 
 <body>
 
-	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
-       <div class="container-fluid">
-           <div class="navbar-header">
-               <a class="navbar-brand" href="#">
-               	<img alt="BooksPlace" src="/images/book.ico" /> 
-               </a>
-           </div>
-       </div>	
+	<nav class="navbar navbar-light navbar-static-top"
+		style="background-color: #B0C4DE">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/inicio"> <img alt="BooksPlace"
+					src="/images/book.ico" />
+				</a>
+			</div>
+		</div>
 	</nav>
 
 
 	<div class="container-fluid">
 		<div class="panel-default">
 			<div class="card">
-			
 
-				<div class="card-header"> 
-				
-		 			<div class="BooksPlace-titulo-panel text">
-		 			
-			  		<h5><FONT FACE=Times>Pesquisa de leitores</FONT></h5>
-		 			
-		 			</div>
-					
-		 			<a class="btn btn-link BooksPlace-link-panel" href="/leitores/novo"> Novo leitor</a>
-					
-				</div> 				
-					
-			  		
-		
-	 			
-	 			
-	 			<div class="card-body">
-	 			
-					<form method="GET" class="form-horizontal" action="/leitores" th:object="${filtro}">
+
+				<div class="card-header">
+
+					<div class="BooksPlace-titulo-panel text">
+
+						<h5>
+							<FONT FACE=Times>Pesquisa de leitores</FONT>
+						</h5>
+
+					</div>
+
+					<a class="btn btn-link BooksPlace-link-panel" href="/leitores/novo">
+						Novo leitor</a>
+
+				</div>
+
+				<div class="card-body">
+
+					<form method="GET" class="form-horizontal" action="/leitores"
+						th:object="${filtro}">
 						<div class="form-group">
 							<div class="col-sm-4">
 								<div class="input-group">
-									<input class="form-control" placeholder="Nome, CPF" 
-									autofocus="autofocus" th:field="*{textoFiltro}">
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-info">
+									<input class="form-control" placeholder="Nome, CPF"
+										autofocus="autofocus" th:field="*{textoFiltro}"> <span
+										class="input-group-btn">
+										<button type="submit" class="btn btn-info">
 											<i class="fas fa-search"> </i>
-											</button>
-										</span>
+										</button>
+									</span>
 								</div>
 							</div>
-							</div>
-					</form>	
+						</div>
+					</form>
 
 					<table class="table table-hover ">
 						<thead class="thead-light ">
 							<tr>
 								<th class="text-center">Nome</th>
-			    				<th class="text-center">CPF</th>
-			    				<th class="text-center">Telefone</th>
-			    				<th class="text-center">Endereço</th>
-			    				<th class="text-center">Estado</th>
-			    				<th class="text-center">Cidade</th>
-			    				<th class="text-center">serviços</th>
+								<th class="text-center">CPF</th>
+								<th class="text-center">Telefone</th>
+								<th class="text-center">Endereço</th>
+								<th class="text-center">Estado</th>
+								<th class="text-center">Cidade</th>
+								<th class="text-center">serviços</th>
 							</tr>
 						</thead>
-			
-						<tbody >
-							<tr th:each= "leitor : ${leitores}">
-								<td class="text-center" th:text="${leitor.nome}"> </td>
-								<td class="text-center" th:text="${leitor.cpf}"> </td>
-								<td class="text-center" th:text="${leitor.telefone}"> </td>
-								<td class="text-center" th:text="${leitor.endereco}"> </td>
-								<td class="text-center" th:text="${leitor.estado}"> </td>
-								<td class="text-center" th:text="${leitor.cidade}"> </td>
-				 				
-												 
-								 <!-- *** INCONPLETO *** -->
+
+						<tbody>
+							<tr th:each="leitor : ${leitores}">
+								<td class="text-center" th:text="${leitor.nome}"></td>
+								<td class="text-center" th:text="${leitor.cpf}"></td>
+								<td class="text-center" th:text="${leitor.telefone}"></td>
+								<td class="text-center" th:text="${leitor.endereco}"></td>
+								<td class="text-center" th:text="${leitor.estado}"></td>
+								<td class="text-center" th:text="${leitor.cidade}"></td>
+
+
+								<!-- *** INCONPLETO *** -->
 								<td class="text-center">
-									<a class="btn btn-link-xs" th:ref=""
-									title="Editar" rel="tooltip" data-placement="top">
-										<span class="fas fa-pencil-alt"></span>
-									</a>								
-								
-									<a  class="btn btn-link-xs" th:ref=""
-									title="Excluir" rel="tooltip" data-placement="top">
-										<span class="fas fa-trash-alt"></span>
-									</a>								
-								
-								 </td>
+								<a class="btn btn-link-xs"
+									th:href="@{/leitores/{codigo}(codigo=${leitor.codigo})}"
+									rel="tooltip">
+										<button class="btn btn-primary btn-xs" title="Editar"
+											data-placement="top">
+											<span class="fas fa-pencil-alt"></span>
+										</button>
+								</a> 
+								<a data-toggle="tooltip" rel="tootip">
+										<button class="btn btn-danger btn-xs" data-title="Delete"
+											data-toggle="modal" data-target="#delete" data-placement="top"  title="Excluir" 
+								th:attr="data-codigo=${leitor.codigo}, data-nome=${leitor.nome}">
+											<span class="fas fa-trash-alt"></span>
+										</button>
+								</a>
+								</td>
 							</tr>
-							
+
 							<tr>
-								<td colspan="6" th:if="${#lists.isEmpty(leitores)}">Nenhum leitor foi encontrado!</td>	
+								<td colspan="6" th:if="${#lists.isEmpty(leitores)}">Nenhum
+									leitor foi encontrado!</td>
 							</tr>
 						</tbody>
-			
-					</table>			
+
+					</table>
 				</div>
 			</div>
+
+		<div class="modal fade" id="delete" tabindex="-1" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog">
+				<form th:attr="data-url-base=@{/leitores}, data-codigo=${codigo}, data-nome=${nome}" method="POST">
+					<input type="hidden" name="_method" value="DELETE"></input>
+					
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Você tem certeza?</h4>
+						</div>
+						
+						<div class="modal-body">
+							<span>Tem certeza que deseja apagar o leitor?</span>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Excluir</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-	</div>	
-	
-	<script src="/js/jquery-3.4.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	
-</body>		
+		</div>
+
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="/js/leitor.js"></script>
+</body>
 </html>
