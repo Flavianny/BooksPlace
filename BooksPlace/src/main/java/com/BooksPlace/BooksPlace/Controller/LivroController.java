@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
 import com.BooksPlace.BooksPlace.Model.Leitor;
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
+import com.BooksPlace.BooksPlace.Service.LivroService;
 import com.BooksPlace.BooksPlace.repository.Livros;
 import com.BooksPlace.BooksPlace.repository.filter.LivroFilter;
 
@@ -122,6 +124,19 @@ public class LivroController {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(livro);
 		return mv;
+	}
+	
+//	@RequestMapping(value="{id}", method=RequestMethod.DELETE)
+//	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
+//		livros.deleteById(id);
+//		attributes.addFlashAttribute("menssagem", "Título excluido com sucesso!");
+//		return "redirect:/livros";
+//	}
+	
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long id) {
+		livros.deleteById(id);
+		return "redirect:/livros";
 	}
 	
 	/**

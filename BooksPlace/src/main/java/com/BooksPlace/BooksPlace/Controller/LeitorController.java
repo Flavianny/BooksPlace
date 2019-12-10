@@ -95,6 +95,11 @@ public class LeitorController {
 				leitor = l;
 			}
 		}
+		if(leitor!=null) {
+			System.out.println("oi" + leitor.getNome());
+		}else {
+			System.out.println("print");
+		}
 		leitores.delete(leitor);
 		attributes.addFlashAttribute("mensagem", "Leitor excluído com sucesso!");
 		return "redirect:/leitores";
