@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+
+import com.BooksPlace.BooksPlace.Model.Leitor;
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
 import com.BooksPlace.BooksPlace.repository.Livros;
@@ -35,6 +38,7 @@ public class LivroController {
 	@Autowired
 	private Livros livros;
 	private Livro livro;
+	private static final String CADASTRO_VIEW = "CadastroLivro";
 
 	private StreamedContent imagem;
 
@@ -63,7 +67,7 @@ public class LivroController {
 	 */
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mv = new ModelAndView("CadastroLivro");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(new Livro());
 		return mv;
 	}
@@ -95,7 +99,7 @@ public class LivroController {
 	@RequestMapping(method = RequestMethod.POST)
 
 	public ModelAndView salvar(@RequestParam("file") MultipartFile file, @Validated Livro livro, Errors erros) {	
-		ModelAndView mv = new ModelAndView("CadastroLivro");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		if (erros.hasErrors()) {
 			return mv;
 		}
@@ -113,6 +117,13 @@ public class LivroController {
 		return mv;
 	}
 
+	@RequestMapping("{id}")
+	public ModelAndView edicao(@PathVariable("id") Livro livro) {
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject(livro);
+		return mv;
+	}
+	
 	/**
 	 * Método todosStatusLivro Utilizado para retornar os status do livro definidos
 	 * pelo Enum StatusLivro.

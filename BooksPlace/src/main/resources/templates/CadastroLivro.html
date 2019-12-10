@@ -16,7 +16,7 @@
 		style="background-color: #B0C4DE">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#"> <img alt="BooksPlace"
+				<a class="navbar-brand" href="/inicio"> <img alt="BooksPlace"
 					src="/images/book.ico" />
 				</a>
 			</div>
@@ -58,12 +58,14 @@
 				    				<img src="imagemLivro" class="rounded float-right">
 				    			</div> -->
 
+								<input type="hidden" th:field="*{id}"></input>
+								
 								<div class="form-group row"
 									th:classappend="${#fields.hasErrors('titulo')} ? has-error">
 									<label for="titulo" class="col-sm-1 control-label">Título</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control " id="titulo"
-											placeholder="Título" name="titulo" />
+											placeholder="Título" th:field="*{titulo}" name="titulo" />
 									</div>
 								</div>
 
@@ -72,7 +74,7 @@
 									<label for="descricao" class="col-sm-1 control-label">Descrição</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="descricao"
-											placeholder="Descrição" name="descricao" />
+											placeholder="Descrição" th:field="*{descricao}" name="descricao" />
 									</div>
 								</div>
 
@@ -81,7 +83,7 @@
 									<label for="genero" class="col-sm-1 control-label">Gênero</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="genero"
-											placeholder="Gênero" name="genero" />
+											placeholder="Gênero" th:field="*{genero}" name="genero" />
 									</div>
 								</div>
 
@@ -90,7 +92,7 @@
 									id="autorForm">
 									<label for="autor" class="col-sm-1 control-label">Autor</label>
 									<div class="col-sm-4"> 
-										<input type="text" class="form-control" id="autores" placeholder="Autor" name="autores"/>
+										<input type="text" class="form-control" id="autores" placeholder="Autor" th:field="*{autores}" name="autores"/>
 
 									</div>
 									<a class="btn btn-primary" href="javascript:void(0)"
@@ -104,7 +106,7 @@
 									<label for="ano" class="col-sm-1 control-label ano">Ano</label>
 									<div class="col-sm-2">
 										<input type="text" class="form-control" id="ano"
-											placeholder="YYYY" maxlength="4" name="ano" />
+											placeholder="Ano" th:field="*{ano}" maxlength="4" name="ano" />
 									</div>
 								</div>
 
@@ -113,20 +115,20 @@
 									<label for="isbn" class="col-sm-1 control-label">ISBN</label>
 									<div class="col-sm-4">
 										<input type="text" class="form-control" id="isbn"
-											placeholder="ISBN" name="isbn" />
+											placeholder="ISBN" th:field="*{isbn}" name="isbn" />
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="exemplares" class="col-sm-1 control-label">Exemplares</label>
 									<div class="col-sm-2">
 										<input type="text" class="form-control" id="exemplares"
-											placeholder="Quantidade" name="exemplares" />
+											placeholder="Quantidade" th:field="*{exemplares}" name="exemplares" />
 									</div>
 								</div>
 								<div class="form-group row">
 									<label for="status" class="col-sm-1 control-label">Status</label>
 									<div class="col-sm-2">
-										<select class="form-control" name="status" id="{status}">
+										<select class="form-control" th:field="*{status}" name="status" id="{status}">
 											<option th:each="status : ${todosStatusLivro}" th:value="${status}"
 												th:text="${status.descricao}"></option>
 										</select>
@@ -134,8 +136,8 @@
 								</div>
 
 								<div class="form-group row">
-									<label for="file">Anexar capa do livro</label> <input
-										type="file" name="file" /><br></br>
+									<label for="file">Anexar capa do livro</label> 
+									<input  type="file" name="file"  /><br></br>
 								</div>
 
 							</div>

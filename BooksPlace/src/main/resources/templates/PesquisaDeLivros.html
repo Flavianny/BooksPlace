@@ -18,7 +18,7 @@
 		style="background-color: #B0C4DE">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#"> <img alt="BooksPlace"
+				<a class="navbar-brand" href="/inicio"> <img alt="BooksPlace"
 					src="/images/book.ico" />
 				</a>
 			</div>
@@ -103,13 +103,20 @@
 
 
 								<!-- *** INCONPLETO *** -->
-								<td class="text-center"><a class="btn btn-link-xs"
-									th:ref="" title="Editar" rel="tooltip" data-placement="top">
+								<td class="text-center">
+									<a class="btn btn-link-xs" th:href="@{/livros/{id}(id=${livro.id})}"
+									title="Editar" rel="tooltip" data-placement="top">
 										<span class="fas fa-pencil-alt"></span>
-								</a> <a class="btn btn-link-xs" th:ref="" title="Excluir"
-									rel="tooltip" data-placement="top"> <span
-										class="fas fa-trash-alt"></span>
-								</a></td>
+									</a>								
+								
+								<!-- 
+								
+									<a  class="btn btn-link-xs" th:href=""
+									title="Excluir" rel="tooltip" data-placement="top">
+										<span class="fas fa-trash-alt"></span>
+									</a>								
+								 -->
+								 </td>
 							</tr>
 
 							<tr>

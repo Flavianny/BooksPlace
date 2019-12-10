@@ -52,7 +52,7 @@
 
 	
 .bt-salvar-usuario{
-	margin-left: 125px;
+	margin-left: 85px;
 }	
 
 
@@ -75,7 +75,6 @@ h11 {
     color:red;
 	}
 	
-
 
 table td{
   border: 1px solid #ccc;
@@ -111,6 +110,7 @@ table tbody tr:hover td{
 }
 
 .botoes-inicio{
+	margin-left: 25px;
     width: 350px;
     padding: 15px 20px;
     border: 1px solid #eee;
@@ -118,4 +118,3 @@ table tbody tr:hover td{
     font-size: 18px;
 	margin-bottom:50%;
 }	
-

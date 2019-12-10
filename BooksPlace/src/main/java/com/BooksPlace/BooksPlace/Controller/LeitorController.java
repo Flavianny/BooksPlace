@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.BooksPlace.BooksPlace.Model.Estado;
 import com.BooksPlace.BooksPlace.Model.Leitor;
@@ -27,6 +29,8 @@ import com.BooksPlace.BooksPlace.repository.filter.LeitorFilter;
 public class LeitorController {
 	@Autowired
 	private Leitores leitores;
+	
+	private static final String CADASTRO_VIEW = "CadastroLeitor";
 	
 //	busca todos os leitores 
 //	OBS: adicionar a filtragem
@@ -48,7 +52,7 @@ public class LeitorController {
 	 */
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mv = new ModelAndView("CadastroLeitor");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(new Leitor());
 		return mv;
 	}
@@ -64,7 +68,7 @@ public class LeitorController {
 	public ModelAndView salvar(@Validated Leitor leitor, Errors errors) {
 		//TODO: Salvar no banco de dados
 		
-		ModelAndView mv = new ModelAndView("CadastroLeitor");	
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);	
 		
 		if(errors.hasErrors()) {
 			return mv;
@@ -75,6 +79,26 @@ public class LeitorController {
 		return mv;
 	}
 	
+	@RequestMapping("{codigo}")
+	public ModelAndView edicao(@PathVariable("codigo") Leitor leitor) {
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject(leitor);
+		return mv;
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		Leitor leitor = null;
+		for(Leitor l: leitores.findAll()) {
+			if(l.getCodigo() == codigo) {
+				leitor = l;
+			}
+		}
+		leitores.delete(leitor);
+		attributes.addFlashAttribute("mensagem", "Leitor excluído com sucesso!");
+		return "redirect:/leitores";
+	}
 	
 	/**
 	 * Método estado
