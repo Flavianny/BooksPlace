@@ -99,7 +99,7 @@ table tbody tr:hover td{
 }	
 
 .foto-capa{
-	position: fixed;
+	position: absolute;
 	top: 182px;
 	left: 630px;
 }	

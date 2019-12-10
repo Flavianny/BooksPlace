@@ -67,7 +67,8 @@
 								<th class="text-center">Leitor</th>
 			    				<th class="text-center">Livro</th>
 			    				<th class="text-center">Devolução</th>
-			    				<th class="text-center">Status</th>
+			    				<!-- <th class="text-center">Status</th> -->
+			    				
 							</tr>
 						</thead>
 			
@@ -76,38 +77,16 @@
 								<td class="text-center">
 									<a 
 									th:text="${emprestimo.cpfLeitor}" ></a>
-<!-- 									incluir na linha a cima
- 									th:href="@{/livros/emprestimo/{id}(id=${livro.id})}" -->
-									
 									
 								 </td>
-								<td class="text-center" th:text="${emprestimo.idLivro}"> </td>
+								<td class="text-center" th:text="${emprestimo.livro}"></td>
 								<td class="text-center" th:text="${emprestimo.devolucao}"> </td>
 								
-								<td class="text-center" th:attr="data-role=${emprestimo.idEmprestimo}">
-									<span class="badge" th:text="${emprestimo.status.descricao}"
-									th:classappend="${emprestimo.indisponivel ? 'badge-danger' : 'badge-success'}">
-									</span>
-								 </td>
-								 
-								 
-								 <!-- *** INCONPLETO *** -->
-								<td class="text-center">
-									<a class="btn btn-link-xs" th:ref=""
-									title="Editar" rel="tooltip" data-placement="top">
-										<span class="fas fa-pencil-alt"></span>
-									</a>								
 								
-									<a  class="btn btn-link-xs" th:ref=""
-									title="Excluir" rel="tooltip" data-placement="top">
-										<span class="fas fa-trash-alt"></span>
-									</a>								
-								
-								 </td>
 							</tr>
 							
 							<tr>
-								<td colspan="5" th:if="${#lists.isEmpty(emprestimos)}">Nenhum emprestimo foi encontrado!</td>	
+								<td colspan="3" th:if="${#lists.isEmpty(emprestimos)}">Nenhum emprestimo foi encontrado!</td>	
 							</tr>
 						</tbody>
 			

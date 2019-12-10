@@ -15,7 +15,7 @@
 	<nav class="navbar navbar-light navbar-static-top" style="background-color: #B0C4DE" >
        <div class="container-fluid">
            <div class="navbar-header">
-               <a class="navbar-brand" href="#">
+               <a class="navbar-brand" href="/inicio">
                	<img alt="BooksPlace" src="/images/book.ico" /> 
                </a>
            </div>
@@ -26,25 +26,34 @@
 	<div class="container-fluid">
 		<div class="panel-default">
 			<div class="card">
-			
-				<div class="card-header"> 
-				
-		 			<div class="BooksPlace-titulo-panel text">
-		 			
-			  		<h5><FONT FACE=Times>Empréstimo</FONT></h5>
-		 			
-		 			</div>
-				</div> 				
-	 			
-	 			<div class="card-body">
-					
-				    	<div class="panel panel-default">
-			    		
-			    		<div class="panel-body">
+
+				<div class="card-header">
+
+					<div class="BooksPlace-titulo-panel text">
+
+						<h5>
+							<FONT FACE=Times>Empréstimo</FONT>
+						</h5>
+
+					</div>
+
+					<a class="btn btn-link BooksPlace-link-panel" href="/livros">
+						Livros</a>
+
+				</div>
+
+				<div class="card-body" th:object="${livro}">
+
+				<form class="form-horizontal" method="POST" th:action="@{/efetuarEmprestimo/{id}(id=${livro.id})}"> 
+
+					<div class="panel panel-default">
+
+						<div class="panel-body">
+
 							<div class="form-group row">
 								<label for="titulo" class="col-sm-1 control-label">Título</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo"/>
+									<input type="text" class="form-control" id="titulo" th:field="*{titulo}"  name="titulo" disabled/>
 								</div>
 							</div>
 
@@ -52,7 +61,7 @@
 							<div class="form-group row">
 								<label for="genero" class="col-sm-1 control-label">Gênero</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="genero" placeholder="Gênero" name="genero"/>
+									<input type="text" class="form-control" id="genero" th:field="*{genero}"  name="genero" disabled/>
 								</div>
 							</div>
 
@@ -60,21 +69,29 @@
 							<div class="form-group row">
 								<label for="ano" class="col-sm-1 control-label">Ano</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="ano" placeholder="Ano" name="ano"/>
+									<input type="text" class="form-control" id="ano" th:field="*{ano}" name="ano" disabled/>
 								</div>
 							</div>
 
 							<div class="form-group row">
-								<label for="autor" class="col-sm-1 control-label">Autor</label>
+								<label for="autor" class="col-sm-1 control-label">Autor(es)</label>
 								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="autor" placeholder="Autor" name="autor"/>
+									<input type="text" class="form-control" id="autor" th:field="*{autores}" name="autor" disabled/>
 								</div>
 							</div>
 
 							<div class="form-group row">
 								<label for="leitor" class="col-sm-1 control-label">Leitor</label>
-								<div class="col-sm-4"> 
-									<input type="text" class="form-control" id="leitor" placeholder="Leitor" name="leitor"/>
+
+								<div class="col-sm-4">
+									<input type="text" list="leitoresPresentesNoBD"
+										class="form-control" id="leitor" placeholder="Leitor"
+										name="cpfLeitor" />
+									<datalist id="leitoresPresentesNoBD"
+										th:object="${todosLeitores}">
+										<option th:each="leitor : ${todosLeitores}"
+											th:value="${leitor.cpf}" th:text="${leitor.nome}"></option>
+									</datalist>
 								</div>
 							</div>
 
@@ -90,24 +107,23 @@
 							<div class="form-group">
 								<div class="col-sm-offset-4 col-sm-10">
 									<button type="submit" class="btn btn-primary">Salvar</button>
+								</div>
 							</div>
 							
-							
 							<!-- Colocar essa img em paralelo aos campos de input -->		 			
-							<div class="card capa-livro" style="width: 25rem; ">
+							<div class="card foto-capa" style="width: 19rem; ">
 							  <img src="/images/booklogo.png" class="card-img-top" alt="logo booksPlace" >
 							</div>
 
-	
+						
 
 						</div>
-			    	</div>
-										
+					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>	
-</div>	
 	
 	<script src="/js/jquery-3.4.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
