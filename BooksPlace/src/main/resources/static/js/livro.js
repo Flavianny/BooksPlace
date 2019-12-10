@@ -1,8 +1,8 @@
 $('#delete').on('show.bs.modal', function(event) {
 	var button = $(event.relatedTarget);
 	
-	var codigoLeitor = button.data('codigo');
-	var nomeLeitor = button.data('nome');
+	var idLivro = button.data('id');
+	var tituloLivro = button.data('titulo');
 	
 	var modal = $(this);
 	var form = modal.find('form');
@@ -10,7 +10,7 @@ $('#delete').on('show.bs.modal', function(event) {
 	if (!action.endsWith('/')) {
 		action += '/';
 	}
-	form.attr('action', action + codigoLeitor );
+	form.attr('action', action + idLivro );
 	
-	modal.find('.modal-body span').html('Tem certeza que deseja excluir <strong>' + nomeLeitor + '</strong>?');
+	modal.find('.modal-body span').html('Tem certeza que deseja excluir <strong>' + tituloLivro + '</strong>?');
 });

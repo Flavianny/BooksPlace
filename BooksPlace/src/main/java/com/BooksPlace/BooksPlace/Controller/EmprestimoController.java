@@ -52,7 +52,6 @@ public class EmprestimoController {
 	}
 
 	
-	
 	@PostMapping("**/efetuarEmprestimo/{id}")
 	public ModelAndView efetuarEmprestimo(@PathVariable("id") Long id,  Emprestimo emprestimo) {
 		
