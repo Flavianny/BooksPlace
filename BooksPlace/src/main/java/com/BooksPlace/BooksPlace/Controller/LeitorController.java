@@ -93,20 +93,6 @@ public class LeitorController {
 		return mv;
 	}
 	
-	
-//	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
-//	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-//		Leitor leitor = null;
-//		for(Leitor l: leitores.findAll()) {
-//			if(l.getCodigo() == codigo) {
-//				leitor = l;
-//			}
-//		}
-//		leitores.delete(leitor);
-//		attributes.addFlashAttribute("mensagem", "Leitor excluído com sucesso!");
-//		return "redirect:/leitores";
-//	}
-	
 	/**
 	 * Método estado
 	 * Utilizado para retornar os estado do Brasil definidos pelo Enum Estado.

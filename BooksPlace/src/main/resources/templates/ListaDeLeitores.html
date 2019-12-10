@@ -89,19 +89,17 @@
 								<td class="text-center" th:text="${leitor.estado}"></td>
 								<td class="text-center" th:text="${leitor.cidade}"></td>
 
-
-								<!-- *** INCONPLETO *** -->
 								<td class="text-center">
 								<a class="btn btn-link-xs"
 									th:href="@{/leitores/{codigo}(codigo=${leitor.codigo})}"
 									rel="tooltip">
-										<button class="btn btn-primary btn-xs" title="Editar"
+										<button class="btn btn-primary btn-xs bt-servico3" title="Editar"
 											data-placement="top">
 											<span class="fas fa-pencil-alt"></span>
 										</button>
 								</a> 
 								<a data-toggle="tooltip" rel="tootip">
-										<button class="btn btn-danger btn-xs" data-title="Delete"
+										<button class="btn btn-primary btn-xs bt-servico4" data-title="Delete"
 											data-toggle="modal" data-target="#delete" data-placement="top"  title="Excluir" 
 								th:attr="data-codigo=${leitor.codigo}, data-nome=${leitor.nome}">
 											<span class="fas fa-trash-alt"></span>
