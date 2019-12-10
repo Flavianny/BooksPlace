@@ -69,16 +69,12 @@
 .form-horizontal{
 	margin-left: -15px;
 	margin-top: 10px;
-<<<<<<< HEAD
 }
-=======
-	}
 
 h11 {
     color:red;
 	}
 	
->>>>>>> cadastro-livro
 
 
 table td{
@@ -104,7 +100,7 @@ table tbody tr:hover td{
 }	
 
 .foto-capa{
-	position: fixed;
+	position: absolute;
 	top: 182px;
 	left: 630px;
 }	
@@ -123,4 +119,3 @@ table tbody tr:hover td{
 	margin-bottom:50%;
 }	
 
-}

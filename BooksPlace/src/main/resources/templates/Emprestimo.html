@@ -42,11 +42,13 @@
 
 				</div>
 
-				<div class="card-body">
+				<div class="card-body" th:object="${livro}">
+
+				<form class="form-horizontal" method="POST" th:action="@{/efetuarEmprestimo/{id}(id=${livro.id})}"> 
 
 					<div class="panel panel-default">
 
-						<div class="panel-body" th:object="${livro}">
+						<div class="panel-body">
 							<div class="form-group row">
 								<label for="titulo" class="col-sm-1 control-label">Título</label>
 								<div class="col-sm-4">
@@ -86,7 +88,7 @@
 								<div class="col-sm-4">
 									<input type="text" list="leitoresPresentesNoBD"
 										class="form-control" id="leitor" placeholder="Leitor"
-										name="leitor" />
+										name="cpfLeitor" />
 									<datalist id="leitoresPresentesNoBD"
 										th:object="${todosLeitores}">
 										<option th:each="leitor : ${todosLeitores}"
@@ -122,6 +124,7 @@
 							</div>
 						</div>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>

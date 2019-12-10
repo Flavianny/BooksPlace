@@ -2,6 +2,7 @@ package com.BooksPlace.BooksPlace.Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -23,10 +25,15 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Livro {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	
+	@OneToMany(mappedBy = "livro")
+	private List<Emprestimo> emprestimos;
+	
 	@NotEmpty(message = " O campo Título é obrigatório")
 	@Size(max = 50, message = "O Título não deve obter mais de 50 caracteres")
 	private String titulo;
@@ -142,6 +149,16 @@ public class Livro {
 		this.capa = capa;
 	}
 
+	
+	
+	public List<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
+
 	public boolean isIndisponivel() {
 		return StatusLivro.INDISPONIVEL.equals(this.status);
 	}
@@ -212,5 +229,7 @@ public class Livro {
 			return false;
 		return true;
 	}
+	
+	
 }
 

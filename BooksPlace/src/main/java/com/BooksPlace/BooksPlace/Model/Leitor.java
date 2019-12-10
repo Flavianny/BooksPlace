@@ -1,11 +1,14 @@
 package com.BooksPlace.BooksPlace.Model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -20,10 +23,17 @@ import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class Leitor {
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+
+	
+	
+	@OneToMany(mappedBy = "leitor")
+	private List<Emprestimo> emprestimos;
+	
 	
 	@NotBlank(message = "Nome é obrigatório")
 	@Size(max = 100, message = "O nome não pode conter mais de 100 caracteres")
@@ -87,6 +97,16 @@ public class Leitor {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
+	
+	
+	public List<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
