@@ -23,7 +23,6 @@ import org.primefaces.model.StreamedContent;
 import com.BooksPlace.BooksPlace.Model.Leitor;
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.Model.StatusLivro;
-import com.BooksPlace.BooksPlace.Service.LivroService;
 import com.BooksPlace.BooksPlace.repository.Livros;
 import com.BooksPlace.BooksPlace.repository.filter.LivroFilter;
 
@@ -126,16 +125,10 @@ public class LivroController {
 		return mv;
 	}
 	
-//	@RequestMapping(value="{id}", method=RequestMethod.DELETE)
-//	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
-//		livros.deleteById(id);
-//		attributes.addFlashAttribute("menssagem", "Título excluido com sucesso!");
-//		return "redirect:/livros";
-//	}
-	
-	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public String excluir(@PathVariable Long id) {
+	@RequestMapping(value="{id}", method = RequestMethod.POST)
+	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
 		livros.deleteById(id);
+		attributes.addFlashAttribute("mensagem", "Livro excluído com sucesso!");
 		return "redirect:/livros";
 	}
 	
