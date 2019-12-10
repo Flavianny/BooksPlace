@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.BooksPlace.BooksPlace.Model.Emprestimo;
-<<<<<<< HEAD
 import com.BooksPlace.BooksPlace.Model.Leitor;
-=======
->>>>>>> 4a3b8fb18ef151e05d67afaf83ef58c236fd4783
 import com.BooksPlace.BooksPlace.Model.Livro;
 import com.BooksPlace.BooksPlace.repository.Emprestimos;
 import com.BooksPlace.BooksPlace.repository.Leitores;
