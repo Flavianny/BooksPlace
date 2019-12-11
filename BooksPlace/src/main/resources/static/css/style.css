@@ -44,6 +44,12 @@
 	margin-top: 20px;
 	}
 
+.alert-emprestimo{
+	margin-left: 20px;
+	margin-right: 700px;
+	margin-top: 20px;
+}
+
 	
 .panel-body {
 	margin-left: 40px;
@@ -95,12 +101,12 @@ table tbody tr:hover td{
 }	
 	
 .btn-salvar-emp{
-	margin-left: 80px;
+	margin-left: 85px;
 }	
 
 .foto-capa{
 	position: absolute;
-	top: 182px;
+	top: 90px;
 	left: 630px;
 }	
 

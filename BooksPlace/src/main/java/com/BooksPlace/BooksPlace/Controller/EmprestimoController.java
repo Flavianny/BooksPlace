@@ -57,21 +57,22 @@ public class EmprestimoController {
 	public ModelAndView efetuarEmprestimo(@PathVariable("id") Long id,  Emprestimo emprestimo) {
 		
 		Leitor leitor = leitores.findByCpf(emprestimo.getCpfLeitor());
-		
-		System.out.println("Leitor: "+leitores.findByCpf(emprestimo.getCpfLeitor()).getCpf());
-		System.out.println("CPF obj: "+emprestimo.getCpfLeitor());
-		
 		Livro livro = livros.findById(id).get();
-		System.out.println("Livro: "+livros.findById(id).get().getTitulo());
+
 		emprestimo.setLeitor(leitor);
 		emprestimo.setLivro(livro);
+		
+//		gambiarra (está sendo salvo 2 strings (cpfLeitor e tituloLivro) obs: olhar model
+		emprestimo.setTituloLivro(livro.getTitulo());
+		
+//		decrementar a variavel exemplares de livro
 
 		emprestimos.save(emprestimo);
 		
-		System.out.println("entrei no método");
 		
 		ModelAndView mv = new ModelAndView("Emprestimo");
 		mv.addObject(livro);
+		mv.addObject("mensagem", "Empréstimo efetuado com sucesso!");
 		return mv; 
 	}
 	

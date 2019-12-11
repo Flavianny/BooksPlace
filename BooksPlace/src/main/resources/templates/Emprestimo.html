@@ -45,6 +45,10 @@
 				<div class="card-body" th:object="${livro}">
 
 				<form class="form-horizontal" method="POST" th:action="@{/efetuarEmprestimo/{id}(id=${livro.id})}"> 
+					
+						<div class="alert alert-success alert-emprestimo" th:if="${!#strings.isEmpty(mensagem)}">
+							<span th:text="${mensagem}">Empréstimo efetuado com sucesso!!</span>
+						</div> 	
 
 					<div class="panel panel-default">
 
@@ -102,16 +106,19 @@
 								</div>
 							</div>
 
+
+
+
 							
 							<!-- Alinhar  o botão com os campos de input-->		 				
 							<div class="form-group">
 								<div class="col-sm-offset-4 col-sm-10">
-									<button type="submit" class="btn btn-primary">Salvar</button>
+									<button type="submit" class="btn btn-primary btn-salvar-emp">Salvar</button>
 								</div>
 							</div>
 							
 							<!-- Colocar essa img em paralelo aos campos de input -->		 			
-							<div class="card foto-capa" style="width: 19rem; ">
+							<div class="card foto-capa" style="width: 20rem; ">
 							  <img src="/images/booklogo.png" class="card-img-top" alt="logo booksPlace" >
 							</div>
 
