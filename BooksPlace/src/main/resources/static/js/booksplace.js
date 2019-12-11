@@ -1,8 +1,8 @@
 $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event) {
 	var button = $(event.relatedTarget);
 	
-	var codigoTitulo = button.data('codigo');
-	var descricaoTitulo = button.data('descricao');
+	var codigoLeitor = button.data('codigo');
+	var nomeLeitor = button.data('nome');
 	
 	var modal = $(this);
 	var form = modal.find('form');
@@ -10,9 +10,9 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function(event) {
 	if (!action.endsWith('/')) {
 		action += '/';
 	}
-	form.attr('action', action + codigoTitulo);
+	form.attr('action', action + codigoLeitor);
 	
-	modal.find('.modal-body span').html('Tem certeza que deseja excluir o título <strong>' + descricaoTitulo + '</strong>?');
+	modal.find('.modal-body span').html('Tem certeza que deseja excluir o título <strong>' + nomeLeitor + '</strong>?');
 });
 
 $(function() {
@@ -49,4 +49,39 @@ $(function() {
 		
 	});
 	
+});
+
+$('#meuModall').on('show.bs.modal', function(event){
+	var button = $(event.relatedTarget);
+	
+	var codigo = button.data('codigo');
+	
+	var modal = $(this);
+	
+	var form = modal.find('form');
+	
+	var action = form.attr('action');
+	
+	if(!action.endsWith('/')){
+		action += '/';
+	}
+	
+	form.attr('action', action + codigo);
+});
+
+$('#meuModal').on('show.bs.modal', function(event) {
+	var button = $(event.relatedTarget);
+	
+	var codigoLivro = button.data('codigo');
+	var tituloLivro = button.data('titulo');
+	
+	var modal = $(this);
+	var form = modal.find('form');
+	var action = form.data('url-base');
+	if (!action.endsWith('/')) {
+		action += '/';
+	}
+	form.attr('action', action + codigoLivro);
+	
+	modal.find('.modal-body span').html('Tem certeza que deseja excluir <strong>' + tituloLivro + '</strong>?');
 });

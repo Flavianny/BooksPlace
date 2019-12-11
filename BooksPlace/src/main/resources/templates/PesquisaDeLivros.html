@@ -7,6 +7,8 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <title>Pesquisa de livros</title>
 </head>
@@ -100,23 +102,25 @@
 									class="badge" th:text="${livro.status.descricao}"
 									th:classappend="${livro.indisponivel ? 'badge-danger' : 'badge-success'}">
 								</span></td>
-
-
-								<!-- *** INCONPLETO *** -->
+								
+								
 								<td class="text-center">
-									<a class="btn btn-link-xs" th:href="@{/livros/{id}(id=${livro.id})}"
-									title="Editar" rel="tooltip" data-placement="top">
-										<span class="fas fa-pencil-alt"></span>
-									</a>								
-								
-								<!-- 
-								
-									<a  class="btn btn-link-xs" th:href=""
-									title="Excluir" rel="tooltip" data-placement="top">
-										<span class="fas fa-trash-alt"></span>
-									</a>								
-								 -->
-								 </td>
+									<a class="btn btn-link-xs"
+										th:href="@{/livros/{id}(id=${livro.id})}"
+										rel="tooltip">
+											<button class="btn btn-primary btn-xs bt-servico1" title="Editar"
+												data-placement="top">
+												<span class="fas fa-pencil-alt"></span>
+											</button>
+									</a> 
+									<a data-toggle="tooltip" rel="tootip">
+											<button class="btn btn-primary btn-xs bt-servico2" data-title="Delete"
+												data-toggle="modal" data-target="#delete" data-placement="top"  title="Excluir" 
+									th:attr="data-id=${livro.id}, data-titulo=${livro.titulo}">
+												<span class="fas fa-trash-alt"></span>
+											</button>
+									</a>
+								</td>
 							</tr>
 
 							<tr>
@@ -128,11 +132,34 @@
 					</table>
 				</div>
 			</div>
+			<div class="modal fade" id="delete" tabindex="-1" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog">
+				<form th:attr="data-url-base=@{/livros}, data-id=${id}, data-titulo=${titulo}" method="POST">
+					<input type="hidden" name="_method" value="DELETE"></input>
+					
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Você tem certeza?</h4>
+						</div>
+						
+						<div class="modal-body">
+							<span>Tem certeza que deseja apagar o livro?</span>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Excluir</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
+	</div>			
 	</div>
 
-	<script src="/js/jquery-3.4.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="/js/livro.js"></script>
 
 </body>
 </html>

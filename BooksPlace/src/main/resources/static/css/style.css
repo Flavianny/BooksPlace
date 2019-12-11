@@ -124,3 +124,25 @@ table tbody tr:hover td{
     font-size: 18px;
 	margin-bottom:50%;
 }	
+
+.bt-servico1{
+	margin-left: 5px;
+	margin-right: -23px;
+
+}
+.bt-servico2{
+	margin-left: 18px;
+	margin-right: -10px;
+	margin-top: 7px;
+}
+
+.bt-servico3{
+	margin-left: 5px;
+	margin-right: -23px;
+
+}
+.bt-servico4{
+	margin-left: 18px;
+	margin-right: -10px;
+	margin-top: 7px;
+}

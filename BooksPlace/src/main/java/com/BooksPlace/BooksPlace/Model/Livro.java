@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
@@ -49,6 +50,7 @@ public class Livro {
 	 * @deprecated Essa variável não deveria ser utilizada com o tipo String, e sim
 	 *             com o tipo int.
 	 */
+	
 	@NotEmpty(message = "O campo Ano é obrigatório")
 	private String ano;
 

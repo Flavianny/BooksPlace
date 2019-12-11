@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -122,6 +123,13 @@ public class LivroController {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(livro);
 		return mv;
+	}
+	
+	@RequestMapping(value="{id}", method = RequestMethod.POST)
+	public String excluir(@PathVariable Long id, RedirectAttributes attributes) {
+		livros.deleteById(id);
+		attributes.addFlashAttribute("mensagem", "Livro excluído com sucesso!");
+		return "redirect:/livros";
 	}
 	
 	/**

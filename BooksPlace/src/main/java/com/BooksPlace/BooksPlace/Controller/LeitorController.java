@@ -79,25 +79,18 @@ public class LeitorController {
 		return mv;
 	}
 	
+	@RequestMapping(value="{codigo}", method = RequestMethod.POST)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		leitores.deleteById(codigo);
+		attributes.addFlashAttribute("mensagem", "Leitor excluído com sucesso!");
+		return "redirect:/leitores";
+	}
+	
 	@RequestMapping("{codigo}")
 	public ModelAndView edicao(@PathVariable("codigo") Leitor leitor) {
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(leitor);
 		return mv;
-	}
-	
-	
-	@RequestMapping(method = RequestMethod.DELETE)
-	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
-		Leitor leitor = null;
-		for(Leitor l: leitores.findAll()) {
-			if(l.getCodigo() == codigo) {
-				leitor = l;
-			}
-		}
-		leitores.delete(leitor);
-		attributes.addFlashAttribute("mensagem", "Leitor excluído com sucesso!");
-		return "redirect:/leitores";
 	}
 	
 	/**

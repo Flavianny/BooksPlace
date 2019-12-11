@@ -89,21 +89,19 @@
 								<td class="text-center" th:text="${leitor.estado}"></td>
 								<td class="text-center" th:text="${leitor.cidade}"></td>
 
-
-								<!-- *** INCONPLETO *** -->
 								<td class="text-center">
 								<a class="btn btn-link-xs"
 									th:href="@{/leitores/{codigo}(codigo=${leitor.codigo})}"
 									rel="tooltip">
-										<button class="btn btn-primary btn-xs" title="Editar"
+										<button class="btn btn-primary btn-xs bt-servico3" title="Editar"
 											data-placement="top">
 											<span class="fas fa-pencil-alt"></span>
 										</button>
 								</a> 
-								<a data-placement="top" data-toggle="tooltip" title="Excluir" rel="tootip"
+								<a data-toggle="tooltip" rel="tootip">
+										<button class="btn btn-primary btn-xs bt-servico4" data-title="Delete"
+											data-toggle="modal" data-target="#delete" data-placement="top"  title="Excluir" 
 								th:attr="data-codigo=${leitor.codigo}, data-nome=${leitor.nome}">
-										<button class="btn btn-danger btn-xs" data-title="Delete"
-											data-toggle="modal" data-target="#delete">
 											<span class="fas fa-trash-alt"></span>
 										</button>
 								</a>
@@ -120,30 +118,30 @@
 				</div>
 			</div>
 
+		<div class="modal fade" id="delete" tabindex="-1" data-keyboard="false" data-backdrop="static">
+			<div class="modal-dialog">
+				<form th:attr="data-url-base=@{/leitores}, data-codigo=${codigo}, data-nome=${nome}" method="POST">
+					<input type="hidden" name="_method" value="DELETE"></input>
+					
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">Você tem certeza?</h4>
+						</div>
+						
+						<div class="modal-body">
+							<span>Tem certeza que deseja apagar o leitor?</span>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
+							<button type="submit" class="btn btn-primary">Excluir</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 		</div>
 
-	<div class="modal fade" id="delete" tabindex="-1" data-keyboard="false" data-backdrop="static">
-		<div class="modal-dialog">
-			<form th:attr="data-url-base=@{/leitores}" method="POST">
-				<input type="hidden" name="_method" value="DELETE"></input>
-				
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Você tem certeza?</h4>
-					</div>
-					
-					<div class="modal-body">
-						<span>Tem certeza que deseja apagar o leitor?</span>
-					</div>
-					
-					<div class="modal-footer">
-						<button type="button" class="btn btn-link" data-dismiss="modal">Cancelar</button>
-						<button type="submit" class="btn btn-primary">Excluir</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
 	</div>
 
 
