@@ -31,8 +31,8 @@ public class Leitor {
 
 	
 	
-	@OneToMany(mappedBy = "leitor")
-	private List<Emprestimo> emprestimos;
+//	@OneToMany(mappedBy = "leitor")
+//	private List<Emprestimo> emprestimos;
 	
 	
 	@NotBlank(message = "Nome é obrigatório")
@@ -99,12 +99,6 @@ public class Leitor {
 	}
 	
 	
-	public List<Emprestimo> getEmprestimos() {
-		return emprestimos;
-	}
-	public void setEmprestimos(List<Emprestimo> emprestimos) {
-		this.emprestimos = emprestimos;
-	}
 	
 	
 	@Override

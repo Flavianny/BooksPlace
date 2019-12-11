@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
@@ -31,9 +30,8 @@ public class Livro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	
-	@OneToMany(mappedBy = "livro")
-	private List<Emprestimo> emprestimos;
+//	@OneToMany(mappedBy = "livro")
+//	private List<Emprestimo> emprestimos;
 	
 	@NotEmpty(message = " O campo Título é obrigatório")
 	@Size(max = 50, message = "O Título não deve obter mais de 50 caracteres")
@@ -152,14 +150,6 @@ public class Livro {
 	}
 
 	
-	
-	public List<Emprestimo> getEmprestimos() {
-		return emprestimos;
-	}
-
-	public void setEmprestimos(List<Emprestimo> emprestimos) {
-		this.emprestimos = emprestimos;
-	}
 
 	public boolean isIndisponivel() {
 		return StatusLivro.INDISPONIVEL.equals(this.status);

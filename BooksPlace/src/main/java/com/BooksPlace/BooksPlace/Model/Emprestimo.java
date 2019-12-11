@@ -24,20 +24,21 @@ public class Emprestimo {
 	@Temporal(TemporalType.DATE)
 	private Date devolucao;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_leitor")
-	private Leitor leitor;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_livro")
-	private Livro livro;
+//	@ManyToOne
+//	@JoinColumn(name = "id_leitor")
+//	private Leitor leitor;
+//	
+//	@ManyToOne
+//	@JoinColumn(name = "id_livro")
+//	private Livro livro;
 
 
 
 	//gambiarra
 	private String cpfLeitor;
 	private String tituloLivro;
-
+	
+	
 	
 	
 	
@@ -53,18 +54,6 @@ public class Emprestimo {
 	}
 	public void setDevolucao(Date devolucao) {
 		this.devolucao = devolucao;
-	}
-	public Leitor getLeitor() {
-		return leitor;
-	}
-	public void setLeitor(Leitor leitor) {
-		this.leitor = leitor;
-	}
-	public Livro getLivro() {
-		return livro;
-	}
-	public void setLivro(Livro livro) {
-		this.livro = livro;
 	}
 	public String getCpfLeitor() {
 		return cpfLeitor;
@@ -85,8 +74,6 @@ public class Emprestimo {
 		result = prime * result + ((cpfLeitor == null) ? 0 : cpfLeitor.hashCode());
 		result = prime * result + ((devolucao == null) ? 0 : devolucao.hashCode());
 		result = prime * result + (int) (idEmprestimo ^ (idEmprestimo >>> 32));
-		result = prime * result + ((leitor == null) ? 0 : leitor.hashCode());
-		result = prime * result + ((livro == null) ? 0 : livro.hashCode());
 		result = prime * result + ((tituloLivro == null) ? 0 : tituloLivro.hashCode());
 		return result;
 	}
@@ -111,16 +98,6 @@ public class Emprestimo {
 			return false;
 		if (idEmprestimo != other.idEmprestimo)
 			return false;
-		if (leitor == null) {
-			if (other.leitor != null)
-				return false;
-		} else if (!leitor.equals(other.leitor))
-			return false;
-		if (livro == null) {
-			if (other.livro != null)
-				return false;
-		} else if (!livro.equals(other.livro))
-			return false;
 		if (tituloLivro == null) {
 			if (other.tituloLivro != null)
 				return false;
@@ -129,8 +106,11 @@ public class Emprestimo {
 		return true;
 	}
 
+	
+	
+	
 
-
+	
 
 	
 	

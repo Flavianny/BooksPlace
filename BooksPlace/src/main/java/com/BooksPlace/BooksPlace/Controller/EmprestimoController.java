@@ -58,8 +58,9 @@ public class EmprestimoController {
 		Leitor leitor = leitores.findByCpf(emprestimo.getCpfLeitor());
 		Livro livro = livros.findById(id).get();
 
-		emprestimo.setLeitor(leitor);
-		emprestimo.setLivro(livro);
+//		usado quando mapeado
+//		emprestimo.setLeitor(leitor);
+//		emprestimo.setLivro(livro);
 		
 //		gambiarra (está sendo salvo 2 strings (cpfLeitor e tituloLivro) obs: olhar model
 		emprestimo.setTituloLivro(livro.getTitulo());
